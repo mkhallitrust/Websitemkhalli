@@ -1404,13 +1404,32 @@
             .fx-hero { height: 165vh; }
             .fx-hero-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 0; }
         }
+        /* the temple photo: softly blurred like the original header, drifts with the mouse / phone tilt
+           and slowly zooms in while you scroll */
         .fx-hero-bg {
-            position: absolute; inset: -4%;
+            position: absolute; inset: -6%;
             background-size: cover; background-position: center;
-            filter: blur(7px) saturate(1.15);
-            opacity: .2;
-            transform: scale(1.06);
-            z-index: -4;
+            filter: blur(4px) saturate(1.05);
+            transform: translate3d(var(--bgx, 0px), calc(var(--bgy, 0px) - var(--sp) * 40px), 0) scale(calc(1.06 + var(--sp) * .14));
+            will-change: transform;
+            z-index: -5;
+        }
+        /* darkening so the text stays readable, but the temple still shows through */
+        .fx-hero-shade {
+            position: absolute; inset: 0; z-index: -4; pointer-events: none;
+            background:
+                linear-gradient(to bottom, rgba(20, 4, 4, .35) 0%, rgba(20, 4, 4, .45) 45%, rgba(20, 4, 4, .82) 100%);
+        }
+        .fx-hero-shade::after {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(15, 3, 3, .5);
+            opacity: calc(var(--sp) * 1.1);
+        }
+        @media (min-width: 1024px) {
+            .fx-hero-shade {
+                background:
+                    linear-gradient(90deg, rgba(20, 4, 4, .8) 0%, rgba(20, 4, 4, .55) 40%, rgba(20, 4, 4, .3) 68%, rgba(20, 4, 4, .42) 100%);
+            }
         }
         .fx-rays-wrap {
             position: absolute; inset: 0; z-index: -3; pointer-events: none;
@@ -1422,7 +1441,7 @@
             position: absolute;
             left: calc(var(--hx, 72%) + var(--acx, 0px) * var(--mv, 0)); top: var(--hy, 42%);
             width: 1700px; height: 1700px; margin: -850px 0 0 -850px;
-            background: repeating-conic-gradient(from 0deg, rgba(244, 207, 87, .09) 0deg 4deg, transparent 4deg 15deg);
+            background: repeating-conic-gradient(from 0deg, rgba(244, 207, 87, .08) 0deg 4deg, transparent 4deg 15deg);
             -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, .55) 18%, transparent 48%);
                     mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, .55) 18%, transparent 48%);
             animation: fx-spin 120s linear infinite;
@@ -1436,7 +1455,7 @@
         .fx-hero-vignette {
             position: absolute; inset: 0; z-index: -1; pointer-events: none;
             background:
-                linear-gradient(to bottom, rgba(15, 3, 3, .8) 0%, transparent 20%, transparent 74%, var(--fx-night) 100%),
+                linear-gradient(to bottom, rgba(15, 3, 3, .7) 0%, transparent 18%, transparent 78%, var(--fx-night) 100%),
                 radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, .5) 100%);
         }
         .fx-shower { position: absolute; inset: 0; z-index: 4; pointer-events: none; overflow: hidden; }
@@ -2064,152 +2083,6 @@
         .fx-faq-item p { padding: 0 .25rem 1.25rem; color: rgba(255, 255, 255, .76); line-height: 1.75; }
         .fx-faq-item a { color: var(--fx-gold-2); text-decoration: underline; text-underline-offset: 3px; }
 
-        /* ---------- 04 AERIAL VIEW (map "lands" flat as you scroll) ---------- */
-        .fx-aerial { position: relative; --k: 0; color: #fff; background: radial-gradient(110% 80% at 50% 60%, #3a0b0b 0%, #1a0404 55%, var(--fx-night) 100%); }
-        .fx-aerial-sticky {
-            position: relative; overflow: hidden; isolation: isolate;
-            display: flex; flex-direction: column; align-items: center;
-            padding: clamp(4.5rem, 9vw, 6.5rem) 1.25rem clamp(3.5rem, 7vw, 5rem);
-        }
-        @media (min-width: 1024px) and (min-height: 600px) {
-            .fx-aerial { height: 190vh; }
-            .fx-aerial-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; justify-content: center; padding: 96px 2rem 1.6rem; }
-        }
-        /* a glowing 3D grid floor under the map */
-        .fx-aerial-floor {
-            position: absolute; left: -50%; right: -50%; bottom: -8%; height: 70%;
-            z-index: -1; pointer-events: none;
-            background-image:
-                linear-gradient(rgba(244, 207, 87, .16) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(244, 207, 87, .16) 1px, transparent 1px);
-            background-size: 64px 64px;
-            transform-origin: 50% 100%;
-            transform: perspective(700px) rotateX(64deg) translateY(calc(var(--k) * 64px));
-            -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%);
-                    mask-image: linear-gradient(to top, #000 10%, transparent 85%);
-        }
-        .fx-aerial-head { position: relative; z-index: 3; text-align: center; max-width: 62rem; }
-        .fx-aerial-head .fx-h2 { color: #fff; }
-        .fx-aerial-sub { margin-top: .8rem; color: rgba(255, 255, 255, .7); font-size: 1rem; line-height: 1.6; }
-        @media (min-width: 1024px) and (max-height: 820px) { .fx-aerial-sub { display: none; } .fx-aerial-head .fx-h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); } }
-
-        .fx-aerial-scene {
-            position: relative; z-index: 2;
-            width: min(100%, 1000px);
-            margin: clamp(1.8rem, 4vw, 2.6rem) 0 clamp(1.2rem, 3vw, 1.8rem);
-            perspective: 1200px; perspective-origin: 50% 20%;
-        }
-        @media (min-width: 1024px) and (min-height: 600px) {
-            .fx-aerial-scene { width: min(1000px, calc((100vh - 400px) * 16 / 9)); width: min(1000px, calc((100svh - 400px) * 16 / 9)); margin: 1.4rem 0 1rem; }
-        }
-        .fx-aerial-plane {
-            position: relative;
-            transform-style: preserve-3d;
-            transform-origin: 50% 60%;
-            transform:
-                translate3d(0, calc((1 - var(--k)) * 30px), 0)
-                rotateX(calc((1 - var(--k)) * 56deg))
-                rotateZ(calc((1 - var(--k)) * -16deg))
-                scale(calc(.8 + var(--k) * .2));
-            will-change: transform;
-        }
-        .fx-aerial-frame {
-            position: relative; overflow: hidden;
-            aspect-ratio: 1 / 1;
-            border-radius: 22px;
-            background: #1b2a1b;
-            border: 2px solid rgba(244, 207, 87, .75);
-            box-shadow:
-                0 0 0 8px rgba(212, 175, 55, .12),
-                0 calc(30px + (1 - var(--k)) * 50px) calc(60px + (1 - var(--k)) * 40px) -20px rgba(0, 0, 0, .85),
-                0 0 80px rgba(244, 207, 87, calc(.12 + (1 - var(--k)) * .15));
-        }
-        @media (min-width: 640px) { .fx-aerial-frame { aspect-ratio: 16 / 10; } }
-        @media (min-width: 1024px) { .fx-aerial-frame { aspect-ratio: 16 / 9; } }
-        .fx-aerial-frame iframe, .fx-aerial-drone { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-        .fx-aerial-drone { object-fit: cover; z-index: 1; }
-        .fx-aerial[data-mode="map"] .fx-aerial-drone { display: none; }
-        .fx-aerial-frame iframe { pointer-events: none; filter: saturate(1.08) contrast(1.04); }
-        .fx-aerial.is-live .fx-aerial-frame iframe { pointer-events: auto; }
-
-        .fx-aerial-shield {
-            position: absolute; inset: 0; z-index: 3;
-            display: flex; align-items: flex-end; justify-content: center;
-            padding: 0 0 1.2rem; border: 0; cursor: pointer;
-            background: linear-gradient(to top, rgba(15, 3, 3, .55), transparent 35%);
-        }
-        .fx-aerial.is-live[data-mode="map"] .fx-aerial-shield { display: none; }
-        .fx-aerial-cta {
-            display: inline-flex; align-items: center; gap: .5rem;
-            padding: .6rem 1.15rem; border-radius: 999px;
-            background: rgba(20, 4, 4, .72); color: #fff;
-            border: 1px solid rgba(244, 207, 87, .55);
-            -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-            font-size: .88rem; font-weight: 600;
-            opacity: calc(var(--k) * 1.6 - .6);
-            transition: background-color .3s, transform .3s var(--fx-ease);
-        }
-        .fx-aerial-shield:hover .fx-aerial-cta { background: rgba(128, 0, 0, .85); transform: translateY(-2px); }
-        .fx-aerial-cta ion-icon { font-size: 1.2rem; color: var(--fx-gold-2); }
-        .fx-aerial-cta-drone { display: none; }
-        .fx-aerial[data-mode="drone"] .fx-aerial-cta-map { display: none; }
-        .fx-aerial[data-mode="drone"] .fx-aerial-cta-drone { display: inline; }
-
-        /* gold viewfinder corners */
-        .fx-vf { position: absolute; z-index: 4; width: 34px; height: 34px; border: 2px solid var(--fx-gold-2); pointer-events: none; opacity: .9; }
-        .fx-vf-tl { top: 14px; left: 14px; border-right: 0; border-bottom: 0; border-top-left-radius: 10px; }
-        .fx-vf-tr { top: 14px; right: 14px; border-left: 0; border-bottom: 0; border-top-right-radius: 10px; }
-        .fx-vf-bl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; border-bottom-left-radius: 10px; }
-        .fx-vf-br { bottom: 14px; right: 14px; border-left: 0; border-top: 0; border-bottom-right-radius: 10px; }
-
-        /* beacon rising from the temple (stands out of the tilted map in 3D) */
-        .fx-beacon {
-            position: absolute; left: 50%; top: 50%; width: 0; height: 0; z-index: 5;
-            transform-style: preserve-3d; pointer-events: none;
-            opacity: calc(1.15 - var(--k));
-        }
-        .fx-aerial.is-live .fx-beacon, .fx-aerial[data-mode="drone"] .fx-beacon { display: none; }
-        .fx-beacon-ring {
-            position: absolute; left: -26px; top: -26px; width: 52px; height: 52px; border-radius: 50%;
-            border: 2px solid var(--fx-gold-2);
-            box-shadow: 0 0 18px rgba(244, 207, 87, .6);
-            animation: fx-ping 2.4s ease-out infinite;
-        }
-        .fx-beacon-ring-2 { animation-delay: 1.2s; }
-        .fx-beacon-beam {
-            position: absolute; left: -2px; bottom: 0; width: 4px; height: 170px; border-radius: 4px;
-            background: linear-gradient(to top, rgba(255, 246, 214, 1), rgba(244, 207, 87, .75) 40%, rgba(244, 207, 87, 0));
-            box-shadow: 0 0 16px rgba(244, 207, 87, .8);
-            transform-origin: 50% 100%;
-            transform: rotateX(-90deg);
-        }
-
-        .fx-compass {
-            position: absolute; z-index: 6; right: -8px; top: -26px;
-            width: clamp(56px, 8vw, 78px); aspect-ratio: 1;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .5));
-            transform: rotate(calc((1 - var(--k)) * -16deg));
-        }
-        @media (min-width: 1024px) { .fx-compass { right: -34px; top: -30px; } }
-
-        .fx-aerial-bar { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .9rem 1.4rem; }
-        .fx-aerial-tabs { display: none; padding: 4px; border-radius: 999px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .15); }
-        .fx-aerial.has-drone .fx-aerial-tabs { display: inline-flex; }
-        .fx-aerial-tab {
-            display: inline-flex; align-items: center; gap: .4rem;
-            padding: .5rem 1rem; border-radius: 999px;
-            font-size: .85rem; font-weight: 600; color: rgba(255, 255, 255, .7);
-            transition: background-color .3s, color .3s;
-        }
-        .fx-aerial-tab.is-active { background: var(--fx-gold); color: var(--fx-maroon); }
-        .fx-aerial-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
-        @keyframes fx-ping { 0% { transform: scale(.4); opacity: 1; } 100% { transform: scale(2.2); opacity: 0; } }
-        @media (prefers-reduced-motion: reduce) {
-            .fx-aerial { height: auto !important; --k: 1 !important; }
-            .fx-aerial-sticky { position: relative !important; height: auto !important; }
-            .fx-beacon-ring { animation: none; }
-        }
-
         /* ---------- keyframes ---------- */
         @keyframes fx-up { to { opacity: 1; transform: none; } }
         @keyframes fx-spin { to { transform: rotate(360deg); } }
@@ -2381,7 +2254,6 @@
                 <button type="button" data-target="fx-welcome" aria-label="About"><span class="fx-dot-label"><span data-lang="en">About</span><span data-lang="kn">ಬಗ್ಗೆ</span></span></button>
                 <button type="button" data-target="fx-vyasa" aria-label="Sri Vyasaraja"><span class="fx-dot-label"><span data-lang="en">Sri Vyasaraja</span><span data-lang="kn">ಶ್ರೀ ವ್ಯಾಸರಾಜರು</span></span></button>
                 <button type="button" data-target="fx-ms" aria-label="Milestones"><span class="fx-dot-label"><span data-lang="en">Milestones</span><span data-lang="kn">ಮೈಲಿಗಲ್ಲುಗಳು</span></span></button>
-                <button type="button" data-target="fx-aerial" aria-label="Aerial view"><span class="fx-dot-label"><span data-lang="en">Aerial View</span><span data-lang="kn">ವೈಮಾನಿಕ ನೋಟ</span></span></button>
                 <button type="button" data-target="fx-moments" aria-label="Gallery"><span class="fx-dot-label"><span data-lang="en">Gallery</span><span data-lang="kn">ಗ್ಯಾಲರಿ</span></span></button>
                 <button type="button" data-target="fx-events" aria-label="Events"><span class="fx-dot-label"><span data-lang="en">Events</span><span data-lang="kn">ಕಾರ್ಯಕ್ರಮಗಳು</span></span></button>
                 <button type="button" data-target="contact" aria-label="Contact"><span class="fx-dot-label"><span data-lang="en">Visit</span><span data-lang="kn">ಸಂಪರ್ಕ</span></span></button>
@@ -2394,7 +2266,9 @@
                  ===================================================== -->
             <section id="hero3d" class="fx-hero" aria-label="Mavinakayinahalli Pranadevaru">
                 <div class="fx-hero-sticky">
+                    <!-- Temple photo behind the opening screen. To change it, paste another GitHub image link inside url('') -->
                     <div class="fx-hero-bg" style="background-image:url('https://github.com/chiranjeevims87-dotcom/mkhalli/blob/main/8e626631-4b8b-43ff-94ea-f223fefb01ae.jpg?raw=true')"></div>
+                    <div class="fx-hero-shade" aria-hidden="true"></div>
                     <div class="fx-rays-wrap" aria-hidden="true"><div class="fx-hero-rays"></div></div>
                     <canvas id="hero-canvas" aria-hidden="true"></canvas>
                     <div class="fx-hero-vignette" aria-hidden="true"></div>
@@ -2812,100 +2686,13 @@
                 </div>
             </section>
 
-            <!-- ===== 04 AERIAL VIEW =====
-                 Shows the live Google satellite view of the temple, which "lands" flat as you scroll.
-                 HAVE A DRONE PHOTO? Upload it to GitHub and paste its ?raw=true link inside data-drone=""
-                 below. A "Drone Photo" tab then appears automatically and opens first. -->
-            <section id="fx-aerial" class="fx-aerial" data-drone="">
-                <div class="fx-aerial-sticky">
-                    <div class="fx-aerial-floor" aria-hidden="true"></div>
-                    <div class="fx-grain" aria-hidden="true"></div>
-
-                    <header class="fx-aerial-head">
-                        <span class="fx-kicker fx-kicker-light">
-                            <span data-lang="en">04 · From Above</span>
-                            <span data-lang="kn">೦೪ · ಆಗಸದಿಂದ</span>
-                        </span>
-                        <h2 class="fx-h2">
-                            <span data-lang="en">Aerial View of the Kshetra</span>
-                            <span data-lang="kn">ಕ್ಷೇತ್ರದ ವೈಮಾನಿಕ ನೋಟ</span>
-                        </h2>
-                        <p class="fx-aerial-sub">
-                            <span data-lang="en">See the temple and its surroundings from the sky — tap the view to explore it live.</span>
-                            <span data-lang="kn">ಆಗಸದಿಂದ ದೇವಾಲಯ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶವನ್ನು ನೋಡಿ — ನೇರವಾಗಿ ವೀಕ್ಷಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ.</span>
-                        </p>
-                    </header>
-
-                    <div class="fx-aerial-scene">
-                        <div class="fx-aerial-plane">
-                            <div class="fx-aerial-frame">
-                                <!-- Live satellite view. To point it somewhere else, change the q= part of this link. -->
-                                <iframe data-src="https://www.google.com/maps?q=Mavinakayinahalli+Anjaneya+Swamy+Temple&t=k&z=18&ie=UTF8&iwloc=&output=embed"
-                                        title="Satellite view of Mavinakayinahalli Anjaneya Swamy Temple, a Sri Vyasaraja pratishthita Hanuman temple" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                                <img class="fx-aerial-drone" alt="Drone view of the temple" hidden>
-                                <button type="button" class="fx-aerial-shield">
-                                    <span class="fx-aerial-cta">
-                                        <ion-icon name="scan-outline"></ion-icon>
-                                        <span class="fx-aerial-cta-map"><span data-lang="en">Tap to explore the live view</span><span data-lang="kn">ನೇರ ನೋಟ ವೀಕ್ಷಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</span></span>
-                                        <span class="fx-aerial-cta-drone"><span data-lang="en">Tap to view full size</span><span data-lang="kn">ಪೂರ್ಣ ಗಾತ್ರದಲ್ಲಿ ನೋಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ</span></span>
-                                    </span>
-                                </button>
-                                <span class="fx-vf fx-vf-tl" aria-hidden="true"></span>
-                                <span class="fx-vf fx-vf-tr" aria-hidden="true"></span>
-                                <span class="fx-vf fx-vf-bl" aria-hidden="true"></span>
-                                <span class="fx-vf fx-vf-br" aria-hidden="true"></span>
-                            </div>
-                            <div class="fx-beacon" aria-hidden="true">
-                                <span class="fx-beacon-ring"></span>
-                                <span class="fx-beacon-ring fx-beacon-ring-2"></span>
-                                <span class="fx-beacon-beam"></span>
-                            </div>
-                        </div>
-
-                        <div class="fx-compass" aria-hidden="true">
-                            <svg viewBox="0 0 100 100" width="100%" height="100%">
-                                <circle cx="50" cy="50" r="46" fill="rgba(20,4,4,.55)" stroke="rgba(244,207,87,.6)" stroke-width="1.5"/>
-                                <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(244,207,87,.25)" stroke-width="1" stroke-dasharray="2 4"/>
-                                <polygon points="50,12 56,50 50,46 44,50" fill="#F4CF57"/>
-                                <polygon points="50,88 56,50 50,54 44,50" fill="rgba(244,207,87,.35)"/>
-                                <text x="50" y="10" text-anchor="middle" font-size="9" font-weight="700" fill="#F4CF57" font-family="sans-serif" dy="-1">N</text>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="fx-aerial-bar">
-                        <div class="fx-aerial-tabs" role="group" aria-label="Aerial view type">
-                            <button type="button" class="fx-aerial-tab" data-mode="drone">
-                                <ion-icon name="camera-outline"></ion-icon>
-                                <span data-lang="en">Drone Photo</span><span data-lang="kn">ಡ್ರೋನ್ ಚಿತ್ರ</span>
-                            </button>
-                            <button type="button" class="fx-aerial-tab" data-mode="map">
-                                <ion-icon name="earth-outline"></ion-icon>
-                                <span data-lang="en">Satellite View</span><span data-lang="kn">ಉಪಗ್ರಹ ನೋಟ</span>
-                            </button>
-                        </div>
-                        <div class="fx-aerial-links">
-                            <a class="fx-btn fx-btn-glass fx-btn-sm" href="https://www.google.com/maps/search/?api=1&query=Mavinakayinahalli+Anjaneya+Swamy+Temple" target="_blank" rel="noopener">
-                                <ion-icon name="map-outline"></ion-icon>
-                                <span data-lang="en">Open in Google Maps</span><span data-lang="kn">ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ</span>
-                            </a>
-                            <a class="btn-gold fx-btn fx-btn-sm" href="https://www.google.com/maps/dir/?api=1&destination=Mavinakayinahalli+Anjaneya+Swamy+Temple" target="_blank" rel="noopener">
-                                <ion-icon name="navigate"></ion-icon>
-                                <span data-lang="en">Get Directions</span><span data-lang="kn">ಮಾರ್ಗ ತೋರಿಸಿ</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== 05 MOMENTS — cards deal out of a 3D stack as you scroll ===== -->
+            <!-- ===== 04 MOMENTS — cards deal out of a 3D stack as you scroll ===== -->
             <section id="fx-moments" class="fx-section fx-moments">
                 <div class="container mx-auto max-w-6xl">
                     <header class="fx-head fx-reveal">
                         <span class="fx-kicker">
-                            <span data-lang="en">05 · Gallery</span>
-                            <span data-lang="kn">೦೫ · ಗ್ಯಾಲರಿ</span>
+                            <span data-lang="en">04 · Gallery</span>
+                            <span data-lang="kn">೦೪ · ಗ್ಯಾಲರಿ</span>
                         </span>
                         <h2 class="fx-h2" data-lang-key="gallery_preview_title">
                             <span data-lang="en">Moments from the Kshetra</span>
@@ -2966,7 +2753,7 @@
                 </div>
             </section>
 
-            <!-- ===== 06 UPCOMING EVENTS (3D carousel) =====
+            <!-- ===== 05 UPCOMING EVENTS (3D carousel) =====
                  To add or change a poster: copy one <button class="fx-cf-item"> block AND its matching
                  <div class="fx-cf-cap"> caption block below, then change the image link and text. -->
             <section id="fx-events" class="fx-section fx-events">
@@ -2975,8 +2762,8 @@
                 <div class="container mx-auto max-w-6xl text-center relative">
                     <header class="fx-head fx-head-dark fx-reveal">
                         <span class="fx-kicker">
-                            <span data-lang="en">06 · Utsava</span>
-                            <span data-lang="kn">೦೬ · ಉತ್ಸವ</span>
+                            <span data-lang="en">05 · Utsava</span>
+                            <span data-lang="kn">೦೫ · ಉತ್ಸವ</span>
                         </span>
                         <h2 class="fx-h2">
                             <span data-lang="en">Upcoming Events</span>
@@ -3049,15 +2836,15 @@
                 </div>
             </section>
 
-            <!-- ===== 07 PARTICIPATE (depth parallax + diyas) ===== -->
+            <!-- ===== 06 PARTICIPATE (depth parallax + diyas) ===== -->
             <section class="fx-cta" id="fx-cta">
                 <div class="fx-cta-bg" style="background-image:url('https://github.com/chiranjeevims87-dotcom/mkhalli/blob/main/unnamed%20(3).jpg?raw=true')"></div>
                 <div class="fx-cta-overlay" aria-hidden="true"></div>
                 <div class="fx-grain" aria-hidden="true"></div>
                 <div class="fx-cta-card">
                     <span class="fx-kicker fx-kicker-light">
-                        <span data-lang="en">07 · Seva</span>
-                        <span data-lang="kn">೦೭ · ಸೇವೆ</span>
+                        <span data-lang="en">06 · Seva</span>
+                        <span data-lang="kn">೦೬ · ಸೇವೆ</span>
                     </span>
                     <h2 class="fx-h2" data-lang-key="cta_title">
                         <span data-lang="en">Participate and Seek Blessings</span>
@@ -3089,14 +2876,14 @@
                 </div>
             </section>
 
-            <!-- ===== 08 CONTACT & LOCATION ===== -->
+            <!-- ===== 07 CONTACT & LOCATION ===== -->
             <section id="contact" class="fx-section fx-contact">
                 <div id="map-target" style="position:relative; top: -100px;"></div>
                 <div class="container mx-auto max-w-6xl">
                     <header class="fx-head fx-reveal">
                         <span class="fx-kicker">
-                            <span data-lang="en">08 · Plan Your Visit</span>
-                            <span data-lang="kn">೦೮ · ನಿಮ್ಮ ಭೇಟಿ</span>
+                            <span data-lang="en">07 · Plan Your Visit</span>
+                            <span data-lang="kn">೦೭ · ನಿಮ್ಮ ಭೇಟಿ</span>
                         </span>
                         <h2 class="fx-h2" data-lang-key="contact_location">
                             <span data-lang="en">Contact & Location</span>
@@ -5765,59 +5552,6 @@ const confirmBtn = document.getElementById('confirmPaymentBtn');
         }
 
         /* =========================================================
-           Aerial view — satellite map "lands" flat as you scroll
-           ========================================================= */
-        (function initAerial() {
-            const sec = $('#fx-aerial');
-            if (!sec) return;
-            const iframe = $('iframe', sec);
-            const shield = $('.fx-aerial-shield', sec);
-            const drone = $('.fx-aerial-drone', sec);
-            const tabs = $$('.fx-aerial-tab', sec);
-            const droneSrc = (sec.dataset.drone || '').trim();
-
-            const loadMap = () => { if (iframe && !iframe.getAttribute('src')) iframe.src = iframe.dataset.src; };
-            function setMode(m) {
-                sec.dataset.mode = m;
-                tabs.forEach((t) => { const on = t.dataset.mode === m; t.classList.toggle('is-active', on); t.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-                if (m === 'map') loadMap();
-            }
-            if (droneSrc && drone) {
-                drone.src = droneSrc;
-                drone.hidden = false;
-                sec.classList.add('has-drone');
-                setMode('drone');
-            } else {
-                setMode('map');
-            }
-            tabs.forEach((t) => t.addEventListener('click', () => setMode(t.dataset.mode)));
-
-            // load the live map only when the visitor gets close to it
-            new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && sec.dataset.mode === 'map') loadMap();
-            }, { rootMargin: '900px 0px' }).observe(sec);
-            // tapping unlocks the live map (so it never traps page scrolling); leaving the section locks it again
-            shield.addEventListener('click', () => {
-                if (sec.dataset.mode === 'drone') { openLightbox(drone); return; }
-                loadMap();
-                sec.classList.add('is-live');
-            });
-            new IntersectionObserver((entries) => {
-                if (!entries[0].isIntersecting) sec.classList.remove('is-live');
-            }, { threshold: 0 }).observe(sec);
-
-            if (reduceMotion) { sec.style.setProperty('--k', '1'); return; }
-            scrollFns.push((vh) => {
-                const r = sec.getBoundingClientRect();
-                if (!onScreen(r, vh)) return;
-                const p = clamp((vh - r.top) / Math.max(1, r.height), 0, 1);
-                const pinned = pinMQ.matches;
-                const t = clamp((p - (pinned ? 0.45 : 0.33)) / (pinned ? 0.45 : 0.5), 0, 1);
-                sec.style.setProperty('--k', (t * t * (3 - 2 * t)).toFixed(4));
-            });
-        })();
-
-        /* =========================================================
            3D coverflow for event posters
            ========================================================= */
         (function initCoverflow() {
@@ -5911,6 +5645,13 @@ const confirmBtn = document.getElementById('confirmPaymentBtn');
                 if (Math.abs(wrap(i - active)) < 0.5) openLightbox($('img', it));
                 else { go(i); restart(); }
             }));
+            // some browsers hit-test 3D layers imprecisely: a tap that lands on the stage but inside
+            // the front poster still opens it
+            stage.addEventListener('click', (e) => {
+                if (moved || e.target !== stage) return;
+                const it = items[mod(active)], r = it.getBoundingClientRect();
+                if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) openLightbox($('img', it));
+            });
 
             stage.addEventListener('pointerdown', (e) => {
                 if (e.button !== 0) return;
@@ -6023,6 +5764,8 @@ const confirmBtn = document.getElementById('confirmPaymentBtn');
             if (m && gl3d) { gl3d.resize(m); if (!running) gl3d.render(nowT(), 0, cur, flare, heroSP, heroMV); }
         }
         function applyArch() {
+            hero.style.setProperty('--bgx', (-cur.x * 18).toFixed(1) + 'px');
+            hero.style.setProperty('--bgy', (cur.y * 12).toFixed(1) + 'px');
             arch3d.style.setProperty('--ry', (cur.x * 14).toFixed(2) + 'deg');
             arch3d.style.setProperty('--rx', (cur.y * 10 + Math.sin(heroSP * Math.PI) * 16).toFixed(2) + 'deg');
         }
