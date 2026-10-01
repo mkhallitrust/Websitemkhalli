@@ -15,6 +15,10 @@
     <meta name="description" content="Mavinakayinahalli Pranadevaru (Hanuman) temple, consecrated by Sri Vyasaraja Tirtha – one of his 732 Pranadevaru idols. Book sevas, donate, plan your visit.">
     <meta name="keywords" content="Vyasaraja Pranadevaru, Vyasaraja Hanuman, Vyasaraja Pratishthita Pranadevaru, Vyasaraya Hanuman temple, Vyasatirtha Hanuman, 732 Hanuman idols, 732 Pranadevaru, Mavinakayinahalli, Mavinakayinahalli Pranadevaru, Mavinakayinahalli Anjaneya temple, Mukhyaprana temple, Uttara Pinakini, ವ್ಯಾಸರಾಜ ಪ್ರತಿಷ್ಠಿತ ಪ್ರಾಣದೇವರು, ಮಾವಿನಕಾಯಿನಹಳ್ಳಿ ಪ್ರಾಣದೇವರು">
     <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://www.mkhallipranadevaru.com/">
+    <link rel="alternate" hreflang="en-IN" href="https://www.mkhallipranadevaru.com/">
+    <link rel="alternate" hreflang="kn-IN" href="https://www.mkhallipranadevaru.com/">
+    <link rel="alternate" hreflang="x-default" href="https://www.mkhallipranadevaru.com/">
     <meta name="author" content="Sri Mavinakayinahalli Mukhyaprana Seva Trust">
     <meta name="theme-color" content="#800000">
     <link rel="icon" href="https://raw.githubusercontent.com/chiranjeevims87-dotcom/mkhalli/main/Gemini_Generated_Image_rt4xiert4xiert4x%20-%20Edited.png">
@@ -28,6 +32,7 @@
 
     <!-- Link preview on WhatsApp / Facebook / X -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mkhallipranadevaru.com/">
     <meta property="og:site_name" content="Sri Mavinakayinahalli Mukhyaprana Seva Trust">
     <meta property="og:title" content="Sri Vyasaraja Pratishthita Pranadevaru – Mavinakayinahalli">
     <meta property="og:description" content="One of the 732 Pranadevaru (Hanuman) idols consecrated by Sri Vyasaraja Tirtha, on the banks of the Uttara Pinakini. Book sevas, donate and plan your visit.">
@@ -47,7 +52,8 @@
       "@graph": [
         {
           "@type": "HinduTemple",
-          "@id": "#temple",
+          "@id": "https://www.mkhallipranadevaru.com/#temple",
+          "url": "https://www.mkhallipranadevaru.com/",
           "name": "Mavinakayinahalli Sri Pranadevaru (Mukhyaprana) Temple",
           "alternateName": [
             "Mavinakayinahalli Pranadevaru",
@@ -87,7 +93,8 @@
         },
         {
           "@type": "NGO",
-          "@id": "#trust",
+          "@id": "https://www.mkhallipranadevaru.com/#trust",
+          "url": "https://www.mkhallipranadevaru.com/",
           "name": "Sri Mavinakayinahalli Mukhyaprana Seva Trust",
           "alternateName": ["MSMST", "ಶ್ರೀ ಮಾವಿನಕಾಯಿನಹಳ್ಳಿ ಮುಖ್ಯಪ್ರಾಣ ಸೇವಾ ಟ್ರಸ್ಟ್"],
           "logo": "https://raw.githubusercontent.com/chiranjeevims87-dotcom/mkhalli/main/Gemini_Generated_Image_rt4xiert4xiert4x%20-%20Edited.png",
@@ -102,16 +109,17 @@
         },
         {
           "@type": "WebSite",
-          "@id": "#website",
+          "@id": "https://www.mkhallipranadevaru.com/#website",
+          "url": "https://www.mkhallipranadevaru.com/",
           "name": "Sri Mavinakayinahalli Mukhyaprana Seva Trust",
           "alternateName": "Mavinakayinahalli Pranadevaru",
           "inLanguage": ["en-IN", "kn-IN"],
-          "publisher": { "@id": "#trust" },
-          "about": { "@id": "#temple" }
+          "publisher": { "@id": "https://www.mkhallipranadevaru.com/#trust" },
+          "about": { "@id": "https://www.mkhallipranadevaru.com/#temple" }
         },
         {
           "@type": "FAQPage",
-          "@id": "#faq",
+          "@id": "https://www.mkhallipranadevaru.com/#faq",
           "mainEntity": [
             {
               "@type": "Question",
@@ -1321,6 +1329,74 @@
             .fx-reveal { opacity: 1 !important; transform: none !important; transition: none; }
             .fx-hero-rays, .fx-arch-shine, .fx-title-main, .fx-offer ion-icon, .fx-diya span, .fx-arch-halo, .fx-mouse span { animation: none; }
         }
+        /* =====================================================================
+           PHONES — the same look with far less work for the graphics chip
+           ===================================================================== */
+        .fx-phone .fx-grain { display: none; }
+        .fx-phone .fx-eyebrow, .fx-phone .fx-btn-glass, .fx-phone .fx-offer, .fx-phone .fx-cta-card,
+        .fx-phone .fx-cf-nav, .fx-phone .fx-lb, .fx-phone [class*="fx-"] { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+        .fx-phone .fx-btn-glass { background: rgba(255, 255, 255, .12); }
+        .fx-phone .fx-cta-card { background: rgba(40, 6, 6, .55); }
+        /* blurred photo: a tiny stretched copy instead of a live blur filter */
+        .fx-phone .fx-hero-bg, .fx-phone .fx-cta-bg { filter: none; opacity: 0; transition: opacity .7s ease; }
+        .fx-phone .fx-hero-bg.has-soft, .fx-phone .fx-cta-bg.has-soft { opacity: 1; }
+        .fx-bg-soft { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        /* smaller sun-ray layer that stays still */
+        .fx-phone .fx-hero-rays { width: 900px; height: 900px; margin: -450px 0 0 -450px; animation: none; }
+        /* animated gradient text and sheen repaint every frame — keep them still */
+        .fx-phone .fx-title-main.fx-in { animation: fx-up 1.1s var(--fx-ease) var(--d, 0s) forwards; }
+        .fx-phone .fx-title-main { filter: none; }
+        .fx-phone .fx-arch-shine { animation: none; opacity: 0; }
+        .fx-phone .fx-offer ion-icon { animation: none; }
+        /* lamp flames: soft glow without stacked drop-shadow filters */
+        .fx-phone .fx-diya span { filter: none; box-shadow: 0 0 14px 4px rgba(255, 170, 60, .45); }
+        /* dimmed posters: a dark veil instead of a brightness filter */
+        .fx-phone .fx-cf-item:not(.is-active) { filter: none; }
+        .fx-phone .fx-cf-item::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: rgba(12, 3, 3, .55); opacity: 0; transition: opacity .6s; pointer-events: none; }
+        .fx-phone .fx-cf-item:not(.is-active)::after { opacity: 1; }
+        .fx-phone .fx-pm-map .leaflet-tile-pane { filter: none; }
+        .fx-pmap.is-map .fx-pm-spinner { animation: none; }
+        /* big soft shadows are the most expensive thing to draw while scrolling — phones get tighter ones */
+        .fx-phone .fx-arch { box-shadow: 0 0 0 3px var(--fx-gold), 0 0 0 9px rgba(212, 175, 55, .16), 0 16px 24px -10px rgba(0, 0, 0, .75); }
+        .fx-phone .fx-arch-stage.is-blessed .fx-arch { box-shadow: 0 0 0 3px var(--fx-gold-2), 0 0 0 10px rgba(244, 207, 87, .3), 0 16px 24px -10px rgba(0, 0, 0, .75); }
+        .fx-phone .fx-arch-outline { box-shadow: none; }
+        .fx-phone .fx-arch-badge { box-shadow: 0 6px 12px rgba(0, 0, 0, .45); }
+        .fx-phone .fx-btn-maroon { box-shadow: 0 6px 12px -6px rgba(128, 0, 0, .7); }
+        .fx-phone .fx-stat { box-shadow: 0 10px 16px -10px rgba(0, 0, 0, .7); }
+        .fx-phone .fx-portrait-img { box-shadow: 0 14px 20px -12px rgba(80, 0, 0, .55); }
+        .fx-phone .fx-portrait-chip { box-shadow: 0 8px 14px -8px rgba(0, 0, 0, .3); }
+        .fx-phone .fx-ms-card { box-shadow: 0 10px 16px -12px rgba(128, 0, 0, .4); }
+        .fx-phone .fx-ms-card.is-active { box-shadow: 0 0 0 1px rgba(212, 175, 55, .6), 0 12px 18px -12px rgba(128, 0, 0, .5); }
+        .fx-phone .fx-moment-media { box-shadow: 0 12px 18px -12px rgba(60, 0, 0, .55); }
+        .fx-phone .fx-cf-item { box-shadow: 0 14px 20px -12px rgba(0, 0, 0, .8); }
+        .fx-phone .fx-cf-item.is-active { box-shadow: 0 0 0 3px var(--fx-gold), 0 14px 22px -12px rgba(0, 0, 0, .7); }
+        .fx-phone .fx-cta-card { box-shadow: 0 14px 22px -14px rgba(0, 0, 0, .7); }
+        .fx-phone .fx-map, .fx-phone .fx-pm-shell { box-shadow: 0 12px 20px -14px rgba(60, 0, 0, .5); }
+        .fx-phone .fx-vfact { box-shadow: 0 8px 14px -10px rgba(0, 0, 0, .7); }
+        .fx-phone .fx-progress span { box-shadow: none; }
+
+        /* =====================================================================
+           LITE — slow phones, data saver, or "reduce motion": calm and static
+           ===================================================================== */
+        .fx-lite .fx-hero { height: auto !important; }
+        .fx-lite .fx-hero-sticky { position: relative !important; height: auto !important; min-height: 100svh !important; }
+        .fx-lite #hero-canvas { display: none; }
+        .fx-lite .fx-in, .fx-lite .fx-title-main.fx-in { animation: none !important; opacity: 1 !important; transform: none !important; }
+        .fx-lite .fx-hero-bg { transform: scale(1.06) !important; }
+        .fx-lite .fx-rays-wrap { transform: none !important; opacity: 1 !important; }
+        .fx-lite .fx-hero-rays, .fx-lite .fx-arch-shine, .fx-lite .fx-title-main, .fx-lite .fx-offer ion-icon,
+        .fx-lite .fx-diya span, .fx-lite .fx-arch-halo, .fx-lite .fx-mouse span, .fx-lite .fx-pin-ours b { animation: none !important; }
+        .fx-lite .fx-hero-copy, .fx-lite .fx-offer, .fx-lite .fx-scroll-hint { transform: none !important; opacity: 1 !important; }
+        .fx-lite .fx-arch { transform: none !important; }
+        .fx-lite .fx-stat, .fx-lite .fx-moment-wrap, .fx-lite .fx-cf-wrap, .fx-lite .fx-contact-left, .fx-lite .fx-contact-right,
+        .fx-lite .fx-cta-bg, .fx-lite .fx-cta-card, .fx-lite .fx-diya, .fx-lite #fx-spiral, .fx-lite .fx-pm-shell,
+        .fx-lite .fx-portrait-img, .fx-lite .fx-portrait-chip, .fx-lite .fx-welcome-copy, .fx-lite .fx-mandala {
+            transform: none !important; opacity: 1 !important; will-change: auto !important;
+        }
+        .fx-lite .fx-portrait-back { transform: translate(34px, 34px) !important; }
+        .fx-lite .fx-cta-bg { inset: 0; }
+        .fx-lite .fx-glare { display: none; }
+        .fx-lite [data-tilt] { transform: none !important; }
     </style>
     <style>
         /* =====================================================================
@@ -1574,6 +1650,7 @@
         .pg-lb-thumbs img { width: 100%; height: 100%; object-fit: cover; }
         .pg-spin, .sv-spin { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 3px solid rgba(212, 175, 55, .25); border-top-color: var(--pg-gold); animation: pg-spin .8s linear infinite; pointer-events: none; transition: opacity .3s; }
         .pg-lb.is-ready .pg-spin { opacity: 0; }
+        .pg-lb:not(.is-open) .pg-spin, .pg-lb.is-ready .pg-spin, .sv-modal:not(.is-open) .sv-spin, .sv-qr-box.is-ready .sv-spin { animation: none; }
 
         /* ---------- toast ---------- */
         .pg-toast {
@@ -1866,6 +1943,93 @@
         .pg-deck-all { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem .95rem; border-radius: 999px; font-size: .85rem; font-weight: 700; color: var(--pg-maroon); background: #fff; border: 1px solid var(--pg-line); transition: border-color .25s; }
         .pg-deck-all:hover { border-color: var(--pg-maroon); }
         .pg-deck[data-cards="1"] .pg-deck-ctrl, .pg-deck[data-cards="2"] .pg-deck-bar { display: none; }
+
+        /* ---- Trust: founder + purpose ---- */
+        .pg-tr-intro { display: grid; gap: 1.2rem; margin-bottom: clamp(3rem, 6vw, 4.5rem); }
+        @media (min-width: 900px) { .pg-tr-intro { grid-template-columns: 340px minmax(0, 1fr); gap: 2rem; align-items: stretch; } }
+        .pg-founder {
+            position: relative; overflow: hidden; isolation: isolate;
+            padding: 2rem 1.7rem 1.8rem; border-radius: 24px; color: #fff;
+            background: radial-gradient(120% 120% at 0% 0%, #7a1414 0%, #3a0707 60%, #230404 100%);
+            box-shadow: 0 24px 40px -28px rgba(80, 10, 10, .8);
+        }
+        .pg-founder::after { content: ''; position: absolute; right: -60px; bottom: -60px; width: 200px; height: 200px; z-index: -1; border-radius: 50%; background: radial-gradient(circle, rgba(244, 207, 87, .22), transparent 65%); }
+        .pg-founder-mono {
+            display: grid; place-items: center; width: 68px; height: 68px; margin-bottom: 1.1rem; border-radius: 50%;
+            font-family: var(--pg-kn); font-weight: 700; font-size: 1.55rem; color: #4a0000;
+            background: linear-gradient(135deg, #f7dd85, #d4af37); box-shadow: 0 0 0 5px rgba(244, 207, 87, .18);
+        }
+        .pg-founder .pg-kicker { color: var(--pg-gold-2); }
+        .pg-founder h2 { font-family: var(--pg-head); font-weight: 500; font-size: clamp(2.2rem, 4vw, 2.8rem); line-height: .95; margin-top: .4rem; }
+        html[lang="kn"] .pg-founder h2 { font-family: var(--pg-kn); font-weight: 700; font-size: 1.5rem; line-height: 1.4; }
+        .pg-founder p { margin-top: .7rem; color: rgba(255, 255, 255, .8); font-size: 1rem; line-height: 1.6; }
+        .pg-tr-purpose { display: flex; flex-direction: column; justify-content: center; padding: clamp(1.4rem, 3vw, 2.2rem); border-radius: 24px; background: #fff; border: 1px solid var(--pg-line); box-shadow: var(--pg-shadow); }
+        .pg-tr-purpose .pg-quote-mark { height: 2rem; }
+        .pg-tr-purpose .pg-trust-lead { text-align: left; }
+        .pg-tr-name { display: inline-flex; align-items: center; gap: .45rem; align-self: flex-start; margin-top: 1.2rem; padding: .45rem .9rem; border-radius: 999px; font-size: .8rem; font-weight: 700; color: var(--pg-gold-deep); background: #fbf3df; border: 1px solid #efdfb2; }
+
+        /* ---- Trust: seven activities at a glance ---- */
+        .pg-glance { margin-bottom: clamp(4rem, 8vw, 6rem); --g-health: #8b1a1a; --g-edu: #a8841f; --g-village: #c25e16; }
+        .pg-glance-head { text-align: center; margin-bottom: 1.6rem; }
+        .pg-glance-head h2 { font-family: var(--pg-head); font-weight: 500; font-size: clamp(2.3rem, 4.6vw, 3.3rem); line-height: .95; color: var(--pg-maroon); margin-top: .4rem; }
+        html[lang="kn"] .pg-glance-head h2 { font-family: var(--pg-kn); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.4; }
+        .pg-glance-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.2rem; margin-top: .9rem; font-size: .84rem; color: var(--pg-muted); }
+        .pg-glance-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+        .pg-glance-legend i { width: 10px; height: 10px; border-radius: 50%; }
+        .pg-glance-legend [data-g="health"] i { background: var(--g-health); }
+        .pg-glance-legend [data-g="edu"] i { background: var(--g-edu); }
+        .pg-glance-legend [data-g="village"] i { background: var(--g-village); }
+        .pg-glance-grid { display: grid; gap: .9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @media (min-width: 900px) { .pg-glance-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; } }
+        .pg-glance-tile {
+            --c: var(--pg-maroon);
+            position: relative; display: flex; flex-direction: column; gap: .7rem; min-height: 168px;
+            padding: 1.1rem 1.1rem 1rem; border-radius: 18px; background: #fff; overflow: hidden;
+            border: 1px solid var(--pg-line); box-shadow: 0 10px 22px -18px rgba(60, 20, 10, .5);
+            transition: transform .4s var(--pg-ease), box-shadow .4s, border-color .3s, opacity .9s var(--pg-ease);
+            transition-delay: 0s, 0s, 0s, calc(var(--i, 0) * 50ms);
+        }
+        .pg-glance-tile::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--c); }
+        .pg-glance-tile[data-g="health"] { --c: var(--g-health); }
+        .pg-glance-tile[data-g="edu"] { --c: var(--g-edu); }
+        .pg-glance-tile[data-g="village"] { --c: var(--g-village); }
+        .pg-glance-tile:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--c) 40%, #fff); box-shadow: 0 18px 30px -20px rgba(60, 20, 10, .55); }
+        .pg-glance-tile.pg-reveal:not(.is-in) { transform: translateY(22px); }
+        .pg-glance-top { display: flex; align-items: center; justify-content: space-between; }
+        .pg-glance-ic { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-size: 1.3rem; color: var(--c); background: color-mix(in srgb, var(--c) 12%, #fff); }
+        .pg-glance-top b { font-family: var(--pg-head); font-weight: 500; font-size: 1.6rem; line-height: 1; color: color-mix(in srgb, var(--c) 55%, #fff); }
+        .pg-glance-tile strong { flex: 1; font-weight: 700; font-size: .96rem; line-height: 1.35; color: var(--pg-ink); }
+        html[lang="kn"] .pg-glance-tile strong { font-family: var(--pg-kn); font-size: .94rem; line-height: 1.55; }
+        .pg-glance-tag { display: inline-flex; align-items: center; gap: .3rem; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+        html[lang="kn"] .pg-glance-tag { letter-spacing: 0; text-transform: none; font-family: var(--pg-kn); font-size: .8rem; }
+        .pg-glance-cta { --c: var(--pg-gold-2); color: #fff; border-color: transparent; background: radial-gradient(120% 140% at 0% 0%, #7a1414 0%, #3a0707 100%); }
+        .pg-glance-cta::before { display: none; }
+        .pg-glance-cta strong { color: #fff; }
+        .pg-glance-cta .pg-glance-ic { color: #4a0000; background: linear-gradient(135deg, #f7dd85, #d4af37); }
+        .pg-glance-cta:hover { border-color: transparent; }
+
+        /* ---- Trust: activity lists with numbers + highlight when picked from the grid ---- */
+        .pg-act-tag { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: .55rem; padding: .3rem .75rem; border-radius: 999px; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: #8b1a1a; }
+        .pg-act-tag[data-g="edu"] { background: #a8841f; }
+        .pg-act-tag[data-g="village"] { background: #c25e16; }
+        html[lang="kn"] .pg-act-tag { letter-spacing: 0; text-transform: none; font-family: var(--pg-kn); font-size: .82rem; }
+        .pg-ticks-n li { padding-left: 3.4rem; scroll-margin-top: calc(var(--pg-top) + 120px); transition: background .4s, border-color .4s, box-shadow .4s; }
+        .pg-ticks-n li::before { display: none; }
+        .pg-tick-n { position: absolute; left: .85rem; top: .72rem; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-family: var(--pg-head); font-size: 1.05rem; line-height: 1; padding-top: 2px; color: #5a0000; background: linear-gradient(135deg, #f7dd85, #d4af37); }
+        .pg-ticks-n li.is-flash { background: #fff6dc; border-color: var(--pg-gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, .22); animation: pg-flash 1.6s var(--pg-ease); }
+        @keyframes pg-flash { 0%, 100% { transform: none; } 18% { transform: translateX(6px); } 36% { transform: none; } }
+
+        /* ---- Trust: details + support ---- */
+        .pg-tr-foot { display: grid; gap: 1.4rem; align-items: stretch; }
+        @media (min-width: 900px) { .pg-tr-foot { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
+        .pg-tr-dl { margin: 0; display: grid; gap: .6rem; }
+        .pg-tr-dl > div { display: grid; gap: .15rem; padding: .7rem .95rem; border-radius: 12px; background: #fbf7ef; border: 1px solid #f0e6d2; }
+        @media (min-width: 560px) { .pg-tr-dl > div { grid-template-columns: 7.5rem minmax(0, 1fr); align-items: baseline; } }
+        .pg-tr-dl dt { font-size: .8rem; font-weight: 700; color: var(--pg-maroon); }
+        .pg-tr-dl dd { margin: 0; font-weight: 600; color: var(--pg-ink); line-height: 1.45; word-break: break-word; }
+        .pg-tr-dl a { color: var(--pg-maroon); }
+        .pg-tr-cta { margin-top: 0; flex-direction: column; align-items: flex-start; justify-content: center; }
+        .pg-tr-cta-btns { display: flex; flex-wrap: wrap; gap: .7rem; }
 
         /* =========================== DONATIONS =========================== */
         .pg-don { padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 8vw, 6rem); background: linear-gradient(180deg, #fbf6ea 0%, var(--pg-cream) 40%); }
@@ -2197,6 +2361,7 @@
             .pg-page:not(.hidden) .pg-hero-inner > *, .sv-seva, .sv-item, .sv-member, .pg-gal-group.is-enter .pg-ph { animation: none; }
             .pg-hero-bg, .pg-hero-inner { transform: none; opacity: 1; }
             .pg-deck-card { transition: opacity .3s; }
+            .pg-ticks-n li.is-flash { animation: none; }
         }
     </style>
 </head>
@@ -3598,7 +3763,8 @@
             </section>
         </section>
 
-        <!-- ===================== TRUST PAGE ===================== -->
+        <!-- ===================== TRUST PAGE =====================
+             The 7 activities are listed in TR_ACTS (in the generator) and appear in the "at a glance" grid and the lists below. -->
         <section id="page-trust" class="page-section hidden pg-page">
 
             <header class="pg-hero">
@@ -3615,17 +3781,42 @@
                     <h1 class="pg-title"><span data-lang="en">About the Trust</span><span data-lang="kn">ಟ್ರಸ್ಟ್ ಬಗ್ಗೆ</span></h1>
                     <p class="pg-sub"><span data-lang="en">This Trust is the realization of Sri Srinivasa Murthy's vision.</span><span data-lang="kn">ಈ ಟ್ರಸ್ಟ್ ಶ್ರೀ ಶ್ರೀನಿವಾಸ ಮೂರ್ತಿಯವರ ಚಿಂತನೆಯ ಫಲವಾಗಿದೆ.</span></p>
                     <div class="pg-orn" aria-hidden="true"><i></i><b></b><i></i></div>
+                    <div class="pg-hero-stats"><span><b>7</b><span data-lang="en">seva activities</span><span data-lang="kn">ಸೇವಾ ಚಟುವಟಿಕೆಗಳು</span></span><span><b>3</b><span data-lang="en">areas of service</span><span data-lang="kn">ಸೇವಾ ಕ್ಷೇತ್ರಗಳು</span></span><span><b>29</b><span data-lang="en">photos</span><span data-lang="kn">ಚಿತ್ರಗಳು</span></span></div>
                 </div>
             </header>
             <section id="trust-content" class="pg-trust">
                 <div class="pg-wrap">
-                    <div class="pg-trust-intro pg-reveal">
-                        <span class="pg-quote-mark" aria-hidden="true">“</span>
-                        <p class="pg-trust-lead"><span data-lang="en">The trust is interested in social activities and is currently involved in various social awareness programs for the community.</span><span data-lang="kn">ಟ್ರಸ್ಟ್ ಸಾಮಾಜಿಕ ಚಟುವಟಿಕೆಗಳಲ್ಲಿ ಆಸಕ್ತಿ ಹೊಂದಿದೆ ಮತ್ತು ಪ್ರಸ್ತುತ ಸಮುದಾಯಕ್ಕಾಗಿ ವಿವಿಧ ಸಾಮಾಜಿಕ ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ತೊಡಗಿಸಿಕೊಂಡಿದೆ.</span></p>
-                        <div class="pg-pillars">
-                            <a href="#tr-medical" data-jump="tr-medical" class="pg-pillar" data-tilt><span class="pg-pillar-ic"><ion-icon name="medkit-outline"></ion-icon></span><span><small>01</small><b data-lang="en">Medical Camps</b><b data-lang="kn">ವೈದ್ಯಕೀಯ ಶಿಬಿರಗಳು</b></span></a>
-                            <a href="#tr-school" data-jump="tr-school" class="pg-pillar" data-tilt><span class="pg-pillar-ic"><ion-icon name="school-outline"></ion-icon></span><span><small>02</small><b data-lang="en">Support for Education</b><b data-lang="kn">ಶಿಕ್ಷಣಕ್ಕೆ ಬೆಂಬಲ</b></span></a>
-                            <a href="#tr-civic" data-jump="tr-civic" class="pg-pillar" data-tilt><span class="pg-pillar-ic"><ion-icon name="bulb-outline"></ion-icon></span><span><small>03</small><b data-lang="en">Civic Improvements</b><b data-lang="kn">ನಾಗರಿಕ ಸುಧಾರಣೆಗಳು</b></span></a>
+                    <!-- founder + purpose -->
+                    <div class="pg-tr-intro">
+                        <div class="pg-founder pg-reveal" data-tilt>
+                            <span class="pg-founder-mono" aria-hidden="true">ಶ್ರೀ</span>
+                            <span class="pg-kicker"><span data-lang="en">Founder's vision</span><span data-lang="kn">ಸಂಸ್ಥಾಪಕರ ಚಿಂತನೆ</span></span>
+                            <h2><span data-lang="en">Sri Srinivasa Murthy</span><span data-lang="kn">ಶ್ರೀ ಶ್ರೀನಿವಾಸ ಮೂರ್ತಿ</span></h2>
+                            <p><span data-lang="en">This Trust is the fruitful outcome of his thinking.</span><span data-lang="kn">ಈ ಟ್ರಸ್ಟ್ ಅವರ ಚಿಂತನೆಯ ಫಲ.</span></p>
+                        </div>
+                        <div class="pg-tr-purpose pg-reveal">
+                            <span class="pg-quote-mark" aria-hidden="true">“</span>
+                            <p class="pg-trust-lead"><span data-lang="en">The trust is interested in social activities and is currently involved in various social awareness programs for the community.</span><span data-lang="kn">ಟ್ರಸ್ಟ್ ಸಾಮಾಜಿಕ ಚಟುವಟಿಕೆಗಳಲ್ಲಿ ಆಸಕ್ತಿ ಹೊಂದಿದೆ ಮತ್ತು ಪ್ರಸ್ತುತ ಸಮುದಾಯಕ್ಕಾಗಿ ವಿವಿಧ ಸಾಮಾಜಿಕ ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ತೊಡಗಿಸಿಕೊಂಡಿದೆ.</span></p>
+                            <span class="pg-tr-name"><ion-icon name="ribbon-outline"></ion-icon>Mavinakayinahalli Sri Mukhyaprana Seva Trust (R) · MSMST</span>
+                        </div>
+                    </div>
+
+                    <!-- the 7 activities at a glance -->
+                    <div class="pg-glance">
+                        <header class="pg-glance-head pg-reveal">
+                            <span class="pg-kicker"><span data-lang="en">Seva at a glance</span><span data-lang="kn">ಸೇವೆಗಳ ಒಂದು ನೋಟ</span></span>
+                            <h2><span data-lang="en">Seven ways the Trust serves</span><span data-lang="kn">ಟ್ರಸ್ಟ್‌ನ ಏಳು ಸೇವೆಗಳು</span></h2>
+                            <div class="pg-glance-legend"><span data-g="health"><i></i><span data-lang="en">Health</span><span data-lang="kn">ಆರೋಗ್ಯ</span></span><span data-g="edu"><i></i><span data-lang="en">Education</span><span data-lang="kn">ಶಿಕ್ಷಣ</span></span><span data-g="village"><i></i><span data-lang="en">Village & Temple</span><span data-lang="kn">ಗ್ರಾಮ ಮತ್ತು ದೇವಾಲಯ</span></span></div>
+                        </header>
+                        <div class="pg-glance-grid">
+                            <a href="#tr-medical" data-jump="tr-medical" data-flash="tr-li-1" class="pg-glance-tile pg-reveal" data-g="health" style="--i:1"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="medkit-outline"></ion-icon></span><b>01</b></span><strong><span data-lang="en">Medical camp for villagers</span><span data-lang="kn">ಗ್ರಾಮಸ್ಥರಿಗಾಗಿ ವೈದ್ಯಕೀಯ ಶಿಬಿರ</span></strong><span class="pg-glance-tag"><span data-lang="en">Health</span><span data-lang="kn">ಆರೋಗ್ಯ</span></span></a>
+                            <a href="#tr-medical" data-jump="tr-medical" data-flash="tr-li-2" class="pg-glance-tile pg-reveal" data-g="health" style="--i:2"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="fitness-outline"></ion-icon></span><b>02</b></span><strong><span data-lang="en">Medical camp for school students</span><span data-lang="kn">ಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ವೈದ್ಯಕೀಯ ಶಿಬಿರ</span></strong><span class="pg-glance-tag"><span data-lang="en">Health</span><span data-lang="kn">ಆರೋಗ್ಯ</span></span></a>
+                            <a href="#tr-school" data-jump="tr-school" data-flash="tr-li-3" class="pg-glance-tile pg-reveal" data-g="edu" style="--i:3"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="book-outline"></ion-icon></span><b>03</b></span><strong><span data-lang="en">Books and stationery for Government School students</span><span data-lang="kn">ಸರ್ಕಾರಿ ಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪುಸ್ತಕ ಮತ್ತು ಲೇಖನ ಸಾಮಗ್ರಿ</span></strong><span class="pg-glance-tag"><span data-lang="en">Education</span><span data-lang="kn">ಶಿಕ್ಷಣ</span></span></a>
+                            <a href="#tr-school" data-jump="tr-school" data-flash="tr-li-4" class="pg-glance-tile pg-reveal" data-g="edu" style="--i:4"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="trophy-outline"></ion-icon></span><b>04</b></span><strong><span data-lang="en">Scholarships for top performers</span><span data-lang="kn">ಅತ್ಯುತ್ತಮ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ವಿದ್ಯಾರ್ಥಿವೇತನ</span></strong><span class="pg-glance-tag"><span data-lang="en">Education</span><span data-lang="kn">ಶಿಕ್ಷಣ</span></span></a>
+                            <a href="#tr-school" data-jump="tr-school" data-flash="tr-li-5" class="pg-glance-tile pg-reveal" data-g="edu" style="--i:5"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="shirt-outline"></ion-icon></span><b>05</b></span><strong><span data-lang="en">New attire for all students and teachers</span><span data-lang="kn">ಎಲ್ಲಾ ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಶಿಕ್ಷಕರಿಗೆ ಹೊಸ ಉಡುಪು</span></strong><span class="pg-glance-tag"><span data-lang="en">Education</span><span data-lang="kn">ಶಿಕ್ಷಣ</span></span></a>
+                            <a href="#tr-civic" data-jump="tr-civic" data-flash="tr-li-6" class="pg-glance-tile pg-reveal" data-g="village" style="--i:6"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="bulb-outline"></ion-icon></span><b>06</b></span><strong><span data-lang="en">Street lights for the village</span><span data-lang="kn">ಗ್ರಾಮಕ್ಕೆ ಬೀದಿ ದೀಪಗಳು</span></strong><span class="pg-glance-tag"><span data-lang="en">Village & Temple</span><span data-lang="kn">ಗ್ರಾಮ ಮತ್ತು ದೇವಾಲಯ</span></span></a>
+                            <a href="#tr-civic" data-jump="tr-civic" data-flash="tr-li-7" class="pg-glance-tile pg-reveal" data-g="village" style="--i:7"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="business-outline"></ion-icon></span><b>07</b></span><strong><span data-lang="en">Function hall for temple functions</span><span data-lang="kn">ದೇವಾಲಯದ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸಮಾರಂಭ ಭವನ</span></strong><span class="pg-glance-tag"><span data-lang="en">Village & Temple</span><span data-lang="kn">ಗ್ರಾಮ ಮತ್ತು ದೇವಾಲಯ</span></span></a>
+                            <a href="#page-donations" data-page="page-donations" class="page-nav-link pg-glance-tile pg-glance-cta pg-reveal" style="--i:8"><span class="pg-glance-top"><span class="pg-glance-ic"><ion-icon name="heart-outline"></ion-icon></span></span><strong><span data-lang="en">Help us do more</span><span data-lang="kn">ಇನ್ನಷ್ಟು ಸೇವೆಗೆ ಕೈಜೋಡಿಸಿ</span></strong><span class="pg-glance-tag"><span data-lang="en">Donate</span><span data-lang="kn">ದೇಣಿಗೆ</span> <ion-icon name="arrow-forward"></ion-icon></span></a>
                         </div>
                     </div>
 
@@ -3643,8 +3834,10 @@
                         </div>
                         <div class="pg-act-copy pg-reveal">
                             <span class="pg-act-num" aria-hidden="true">01</span>
+                            <span class="pg-act-tag" data-g="health"><span data-lang="en">Health</span><span data-lang="kn">ಆರೋಗ್ಯ</span></span>
                             <h2><span data-lang="en">Medical Camps</span><span data-lang="kn">ವೈದ್ಯಕೀಯ ಶಿಬಿರಗಳು</span></h2>
                             <p><span data-lang="en">Medical camps are organized by the trust for villagers and for the students of the local government school, ensuring access to essential healthcare.</span><span data-lang="kn">ಗ್ರಾಮಸ್ಥರಿಗೆ ಮತ್ತು ಸ್ಥಳೀಯ ಸರ್ಕಾರಿ ಶಾಲೆಯ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಅಗತ್ಯ ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಖಾತ್ರಿಪಡಿಸಲು ಟ್ರಸ್ಟ್ ವೈದ್ಯಕೀಯ ಶಿಬಿರಗಳನ್ನು ಆಯೋಜಿಸುತ್ತದೆ.</span></p>
+                            <ul class="pg-ticks pg-ticks-n"><li id="tr-li-1"><span class="pg-tick-n">01</span><span data-lang="en">Medical camp for villagers</span><span data-lang="kn">ಗ್ರಾಮಸ್ಥರಿಗಾಗಿ ವೈದ್ಯಕೀಯ ಶಿಬಿರ</span></li><li id="tr-li-2"><span class="pg-tick-n">02</span><span data-lang="en">Medical camp for school students</span><span data-lang="kn">ಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ವೈದ್ಯಕೀಯ ಶಿಬಿರ</span></li></ul>
                         </div>
                     </article>
 
@@ -3662,13 +3855,10 @@
                         </div>
                         <div class="pg-act-copy pg-reveal">
                             <span class="pg-act-num" aria-hidden="true">02</span>
+                            <span class="pg-act-tag" data-g="edu"><span data-lang="en">Education</span><span data-lang="kn">ಶಿಕ್ಷಣ</span></span>
                             <h2><span data-lang="en">Support for Education</span><span data-lang="kn">ಶಿಕ್ಷಣಕ್ಕೆ ಬೆಂಬಲ</span></h2>
                             <p><span data-lang="en">The trust actively supports the local Government School by:</span><span data-lang="kn">ಟ್ರಸ್ಟ್ ಸ್ಥಳೀಯ ಸರ್ಕಾರಿ ಶಾಲೆಯನ್ನು ಸಕ್ರಿಯವಾಗಿ ಬೆಂಬಲಿಸುತ್ತದೆ:</span></p>
-                            <ul class="pg-ticks">
-                                <li><span data-lang="en">Issuing books and other stationery items to students.</span><span data-lang="kn">ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪುಸ್ತಕಗಳು ಮತ್ತು ಇತರ ಲೇಖನ ಸಾಮಗ್ರಿಗಳನ್ನು ನೀಡುವುದು.</span></li>
-                                <li><span data-lang="en">Providing scholarships for the top 12 performers.</span><span data-lang="kn">ಅತ್ಯುತ್ತಮ 12 ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ವಿದ್ಯಾರ್ಥಿವೇತನ ನೀಡುವುದು.</span></li>
-                                <li><span data-lang="en">Donating new attire for all students and teachers.</span><span data-lang="kn">ಎಲ್ಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮತ್ತು ಶಿಕ್ಷಕರಿಗೆ ಹೊಸ ಉಡುಪುಗಳನ್ನು ದಾನ ಮಾಡುವುದು.</span></li>
-                            </ul>
+                            <ul class="pg-ticks pg-ticks-n"><li id="tr-li-3"><span class="pg-tick-n">03</span><span data-lang="en">Issuing books and other stationery items to students.</span><span data-lang="kn">ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪುಸ್ತಕಗಳು ಮತ್ತು ಇತರ ಲೇಖನ ಸಾಮಗ್ರಿಗಳನ್ನು ನೀಡುವುದು.</span></li><li id="tr-li-4"><span class="pg-tick-n">04</span><span data-lang="en">Providing scholarships for top performers.</span><span data-lang="kn">ಅತ್ಯುತ್ತಮ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ವಿದ್ಯಾರ್ಥಿವೇತನ ನೀಡುವುದು.</span></li><li id="tr-li-5"><span class="pg-tick-n">05</span><span data-lang="en">Donating new attire for all students and teachers.</span><span data-lang="kn">ಎಲ್ಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಮತ್ತು ಶಿಕ್ಷಕರಿಗೆ ಹೊಸ ಉಡುಪುಗಳನ್ನು ದಾನ ಮಾಡುವುದು.</span></li></ul>
                         </div>
                     </article>
 
@@ -3686,17 +3876,41 @@
                         </div>
                         <div class="pg-act-copy pg-reveal">
                             <span class="pg-act-num" aria-hidden="true">03</span>
+                            <span class="pg-act-tag" data-g="village"><span data-lang="en">Village & Temple</span><span data-lang="kn">ಗ್ರಾಮ ಮತ್ತು ದೇವಾಲಯ</span></span>
                             <h2><span data-lang="en">Civic Improvements</span><span data-lang="kn">ನಾಗರಿಕ ಸುಧಾರಣೆಗಳು</span></h2>
                             <p><span data-lang="en">To improve the civic life of the village, the trust has installed new street lights. Additionally, a new function hall has been built to host functions related to the temple.</span><span data-lang="kn">ಗ್ರಾಮದ ನಾಗರಿಕ ಜೀವನವನ್ನು ಸುಧಾರಿಸಲು, ಟ್ರಸ್ಟ್ ಹೊಸ ಬೀದಿ ದೀಪಗಳನ್ನು ಅಳವಡಿಸಿದೆ. ಹೆಚ್ಚುವರಿಯಾಗಿ, ದೇವಾಲಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ನಡೆಸಲು ಹೊಸ ಸಮಾರಂಭ ಭವನವನ್ನು ನಿರ್ಮಿಸಲಾಗಿದೆ.</span></p>
+                            <ul class="pg-ticks pg-ticks-n"><li id="tr-li-6"><span class="pg-tick-n">06</span><span data-lang="en">Street lights for the village</span><span data-lang="kn">ಗ್ರಾಮಕ್ಕೆ ಬೀದಿ ದೀಪಗಳು</span></li><li id="tr-li-7"><span class="pg-tick-n">07</span><span data-lang="en">Function hall for temple functions</span><span data-lang="kn">ದೇವಾಲಯದ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸಮಾರಂಭ ಭವನ</span></li></ul>
                         </div>
                     </article>
 
-                    <div class="pg-endcard pg-reveal">
-                        <div>
-                            <h3><span data-lang="en">Support the Trust's work</span><span data-lang="kn">ಟ್ರಸ್ಟ್‌ನ ಕಾರ್ಯಗಳಿಗೆ ಕೈಜೋಡಿಸಿ</span></h3>
-                            <p><span data-lang="en">Every contribution helps the medical camps, the school and the village.</span><span data-lang="kn">ಪ್ರತಿಯೊಂದು ಕೊಡುಗೆಯೂ ವೈದ್ಯಕೀಯ ಶಿಬಿರ, ಶಾಲೆ ಮತ್ತು ಗ್ರಾಮಕ್ಕೆ ನೆರವಾಗುತ್ತದೆ.</span></p>
+                    <!-- trust details + support -->
+                    <div class="pg-tr-foot">
+                        <div class="pg-card pg-tr-card pg-reveal">
+                            <div class="pg-card-head">
+                                <span class="pg-card-ic"><ion-icon name="ribbon-outline"></ion-icon></span>
+                                <div>
+                                    <h2><span data-lang="en">The Trust</span><span data-lang="kn">ಟ್ರಸ್ಟ್</span></h2>
+                                    <p><span data-lang="en">Registered trust</span><span data-lang="kn">ನೋಂದಾಯಿತ ಟ್ರಸ್ಟ್</span></p>
+                                </div>
+                            </div>
+                            <dl class="pg-tr-dl">
+                                <div><dt><span data-lang="en">Name</span><span data-lang="kn">ಹೆಸರು</span></dt><dd>Mavinakayinahalli Sri Mukhyaprana Seva Trust (R)</dd></div>
+                                <div><dt><span data-lang="en">Founder</span><span data-lang="kn">ಸಂಸ್ಥಾಪಕರು</span></dt><dd><span data-lang="en">Sri Srinivasa Murthy</span><span data-lang="kn">ಶ್ರೀ ಶ್ರೀನಿವಾಸ ಮೂರ್ತಿ</span></dd></div>
+                                <div><dt><span data-lang="en">Address</span><span data-lang="kn">ವಿಳಾಸ</span></dt><dd>Anjaneya Temple, Arasalbande, Mavinakayinahalli, Karnataka 561211</dd></div>
+                                <div><dt><span data-lang="en">Email</span><span data-lang="kn">ಇಮೇಲ್</span></dt><dd><a href="mailto:mkhallitrust@gmail.com">mkhallitrust@gmail.com</a></dd></div>
+                                <div><dt><span data-lang="en">Phone</span><span data-lang="kn">ದೂರವಾಣಿ</span></dt><dd><a href="tel:+919448076834">+91 94480 76834</a></dd></div>
+                            </dl>
                         </div>
-                        <a href="#page-donations" data-page="page-donations" class="page-nav-link pg-btn pg-btn-gold"><ion-icon name="heart-outline"></ion-icon><span data-lang="en">Donate Now</span><span data-lang="kn">ಈಗ ದೇಣಿಗೆ ನೀಡಿ</span></a>
+                        <div class="pg-endcard pg-tr-cta pg-reveal">
+                            <div>
+                                <h3><span data-lang="en">Support the Trust's work</span><span data-lang="kn">ಟ್ರಸ್ಟ್‌ನ ಕಾರ್ಯಗಳಿಗೆ ಕೈಜೋಡಿಸಿ</span></h3>
+                                <p><span data-lang="en">Every contribution helps the medical camps, the school and the village.</span><span data-lang="kn">ಪ್ರತಿಯೊಂದು ಕೊಡುಗೆಯೂ ವೈದ್ಯಕೀಯ ಶಿಬಿರ, ಶಾಲೆ ಮತ್ತು ಗ್ರಾಮಕ್ಕೆ ನೆರವಾಗುತ್ತದೆ.</span></p>
+                            </div>
+                            <div class="pg-tr-cta-btns">
+                                <a href="#page-donations" data-page="page-donations" class="page-nav-link pg-btn pg-btn-gold"><ion-icon name="heart-outline"></ion-icon><span data-lang="en">Donate Now</span><span data-lang="kn">ಈಗ ದೇಣಿಗೆ ನೀಡಿ</span></a>
+                                <a href="#contact" data-page="page-home" data-scroll="contact" class="page-nav-link pg-btn pg-btn-ghost"><ion-icon name="call-outline"></ion-icon><span data-lang="en">Contact the Trust</span><span data-lang="kn">ಟ್ರಸ್ಟ್ ಸಂಪರ್ಕಿಸಿ</span></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -4447,8 +4661,10 @@
         }
         const fns = [];
         let ticking = false;
+        const homeSec = document.getElementById('page-home');
         function run() {
             ticking = false;
+            if (homeSec && !homeSec.classList.contains('hidden')) return;   // homepage has its own scroll engine
             syncTop();
             const vh = window.innerHeight;
             for (let i = 0; i < fns.length; i++) fns[i](vh);
@@ -4816,7 +5032,15 @@
         /* in-page jump links (Trust pillars) */
         $$('.pg-page a[data-jump]').forEach((a) => {
             if (a.closest('.pg-toc')) return;
-            a.addEventListener('click', (e) => { e.preventDefault(); jumpTo(document.getElementById(a.dataset.jump), 20); });
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                jumpTo(document.getElementById(a.dataset.jump), 20);
+                const f = a.dataset.flash && document.getElementById(a.dataset.flash);
+                if (f) setTimeout(() => {
+                    f.classList.remove('is-flash'); void f.offsetWidth; f.classList.add('is-flash');
+                    setTimeout(() => f.classList.remove('is-flash'), 2200);
+                }, reduce ? 0 : 650);
+            });
         });
 
         /* =========================================================
@@ -5432,7 +5656,7 @@
         function svUpdateBar() {
             const bar = document.getElementById('sv-bar');
             if (!bar) return;
-            const onPage = !!document.getElementById('page-sevas').offsetParent;
+            const onPage = !document.getElementById('page-sevas').classList.contains('hidden');
             const show = onPage && cart.length > 0 && !svSummaryVisible && !document.querySelector('.sv-modal.is-open');
             bar.classList.toggle('is-show', show);
             bar.setAttribute('aria-hidden', show ? 'false' : 'true');
@@ -5560,8 +5784,21 @@
         const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
         const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
         const easeOut = (k) => 1 - Math.pow(1 - k, 3);
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const root = document.documentElement;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        // ---- phones get lighter effects; weak phones get the calm "lite" version ----
+        const phone = !finePointer && Math.min(screen.width || 9999, screen.height || 9999) < 900;
+        const conn = navigator.connection || {};
+        const weakDevice = (navigator.deviceMemory && navigator.deviceMemory <= 2) ||
+                           (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+                           conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '');
+        const forceFull = /[?&]full\b/.test(location.search);       // ?full  = always the full effects (for testing)
+        let lite = !forceFull && (prefersReduced || (phone && weakDevice) || /[?&]lite\b/.test(location.search));
+        const reduceMotion = prefersReduced;         // the fully static version of every effect
+        const liteHooks = [];                        // run when a phone is switched to lite while browsing
+        if (phone) root.classList.add('fx-phone');
+        if (lite) root.classList.add('fx-lite');
         const pinMQ = window.matchMedia('(min-width: 1024px) and (min-height: 600px)');
         const isSmall = () => window.innerWidth < 768;
         const pageHome = $('#page-home');
@@ -5571,13 +5808,23 @@
            Scroll engine — one requestAnimationFrame per scroll
            ========================================================= */
         const scrollFns = [];
-        let scrollTicking = false;
+        const measured = new Set();                 // elements measured once per frame, before any style is written
+        const frameRects = new Map();
+        const measure_ = (el) => { if (el) measured.add(el); return el; };
+        const rectOf = (el) => frameRects.get(el) || el.getBoundingClientRect();
+        let scrollTicking = false, docH = 0;
+        const syncDocH = () => { docH = root.scrollHeight; };
         function runScroll() {
             scrollTicking = false;
-            if (!pageHome.offsetParent) return;          // homepage hidden
+            if (pageHome.classList.contains('hidden')) return;          // homepage hidden
             const vh = window.innerHeight;
+            frameRects.clear();
+            measured.forEach((el) => frameRects.set(el, el.getBoundingClientRect()));   // one layout read per frame
+            if (!docH) syncDocH();
             for (let i = 0; i < scrollFns.length; i++) scrollFns[i](vh);
         }
+        if ('ResizeObserver' in window) new ResizeObserver(syncDocH).observe(document.body);
+        window.addEventListener('resize', syncDocH);
         function requestScroll() { if (!scrollTicking) { scrollTicking = true; requestAnimationFrame(runScroll); } }
         window.addEventListener('scroll', requestScroll, { passive: true });
         window.addEventListener('resize', requestScroll);
@@ -5640,7 +5887,8 @@
         const statsSec = $('#fx-stats');
         const statCards = statsSec ? $$('.fx-stat', statsSec) : [];
         if (statsSec && !reduceMotion) scrollFns.push((vh) => {
-            const r = statsSec.getBoundingClientRect();
+            if (lite) return;
+            const r = rectOf(measure_(statsSec));
             if (!onScreen(r, vh)) return;
             const p = passP(r, vh);
             statCards.forEach((c, i) => {
@@ -5655,7 +5903,8 @@
            ========================================================= */
         const welcome = $('#fx-welcome');
         if (welcome && !reduceMotion) scrollFns.push((vh) => {
-            const r = welcome.getBoundingClientRect();
+            if (lite) return;
+            const r = rectOf(measure_(welcome));
             if (!onScreen(r, vh)) return;
             const p = passP(r, vh);
             const d = clamp((p - 0.5) * 2.2, -1, 1);
@@ -5750,7 +5999,7 @@
                 const r = cv.getBoundingClientRect();
                 const w = cv.offsetWidth || r.width;
                 if (!w) return;
-                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                dpr = Math.min(window.devicePixelRatio || 1, phone ? 1.5 : 2);
                 size = w;
                 cv.width = Math.round(w * dpr);
                 cv.height = Math.round(w * dpr);
@@ -5758,7 +6007,8 @@
             }
             function loop(now) {
                 if (!running) return;
-                if (now - lastDraw > (isSmall() ? 33 : 16)) { draw(now / 1000); lastDraw = now; }
+                if (lite) { running = false; return; }
+                if (now - lastDraw > (phone ? 50 : isSmall() ? 33 : 16)) { draw(now / 1000); lastDraw = now; }
                 requestAnimationFrame(loop);
             }
             new IntersectionObserver((entries) => {
@@ -5773,10 +6023,12 @@
             if (ls) ls.addEventListener('click', () => setTimeout(() => draw(performance.now() / 1000), 30));
 
             if (numEl) numEl.textContent = String(lit);
+            liteHooks.push(() => { running = false; k = 1; lit = N; if (numEl) numEl.textContent = String(N); draw(performance.now() / 1000); });
             if (reduceMotion) { sec.style.setProperty('--k', '1'); return; }
             const wrap = cv.parentElement;
             scrollFns.push((vh) => {
-                const r = wrap.getBoundingClientRect();
+                if (lite) return;
+                const r = rectOf(measure_(wrap));
                 if (!onScreen(r, vh)) return;
                 // starts as the spiral enters the screen, completes when its centre reaches ~45% of the screen height
                 const start = vh * 0.95, end = vh * 0.45 - r.height / 2;
@@ -5825,6 +6077,7 @@
 
             let geo = { th: 28, R: 520, h: 150 };
             function layoutCards() {
+                if (lite) return;
                 const small = window.innerWidth < 1024;
                 const cw = cards[0].offsetWidth || 360;
                 // vertical step is taller than the tallest card, so neighbouring cards never overlap
@@ -5851,8 +6104,14 @@
                     }, 200);
                 }
             }
+            liteHooks.push(() => {
+                ms.classList.remove('is-3d');
+                ring.style.transform = '';
+                cards.forEach((c) => { c.style.transform = ''; c.style.opacity = ''; c.style.removeProperty('--dim'); c.classList.remove('is-active'); });
+            });
             scrollFns.push((vh) => {
-                const r = ms.getBoundingClientRect();
+                if (lite) return;
+                const r = rectOf(measure_(ms));
                 if (!onScreen(r, vh)) return;
                 const p = clamp(-r.top / Math.max(1, r.height - vh), 0, 1);
                 const f = p * (n - 1);
@@ -5877,8 +6136,10 @@
            ========================================================= */
         const moments = $('#fx-moments');
         const momentWraps = moments ? $$('.fx-moment-wrap', moments) : [];
+        momentWraps.forEach(measure_);
         if (moments && !reduceMotion) scrollFns.push((vh) => {
-            const r = moments.getBoundingClientRect();
+            if (lite) return;
+            const r = rectOf(measure_(moments));
             if (!onScreen(r, vh)) return;
             if (window.innerWidth >= 768) {
                 momentWraps.forEach((w) => w.style.removeProperty('--k'));
@@ -5886,7 +6147,7 @@
                 moments.style.setProperty('--k', k.toFixed(4));
             } else {
                 momentWraps.forEach((w) => {
-                    const rr = w.getBoundingClientRect();
+                    const rr = rectOf(w);
                     w.style.setProperty('--k', easeOut(clamp((vh - rr.top) / (vh * 0.6), 0, 1)).toFixed(4));
                 });
             }
@@ -5897,7 +6158,8 @@
            ========================================================= */
         const eventsSec = $('#fx-events');
         if (eventsSec && !reduceMotion) scrollFns.push((vh) => {
-            const r = eventsSec.getBoundingClientRect();
+            if (lite) return;
+            const r = rectOf(measure_(eventsSec));
             if (!onScreen(r, vh)) return;
             eventsSec.style.setProperty('--k', easeOut(clamp((passP(r, vh) - 0.08) / 0.3, 0, 1)).toFixed(4));
         });
@@ -5909,7 +6171,8 @@
         const ctaBg = cta ? $('.fx-cta-bg', cta) : null;
         if (cta && !reduceMotion) {
             scrollFns.push((vh) => {
-                const r = cta.getBoundingClientRect();
+                if (lite) return;
+                const r = rectOf(measure_(cta));
                 if (!onScreen(r, vh)) return;
                 cta.style.setProperty('--sp', passP(r, vh).toFixed(4));
             });
@@ -5924,7 +6187,8 @@
         }
         const contact = $('#contact');
         if (contact && !reduceMotion) scrollFns.push((vh) => {
-            const r = contact.getBoundingClientRect();
+            if (lite) return;
+            const r = rectOf(measure_(contact));
             if (!onScreen(r, vh)) return;
             contact.style.setProperty('--k', easeOut(clamp((passP(r, vh) - 0.05) / 0.3, 0, 1)).toFixed(4));
         });
@@ -5935,11 +6199,14 @@
         const progressBar = $('#fx-progress-bar');
         const dotBtns = $$('#fx-dots button');
         const dotTargets = dotBtns.map((b) => document.getElementById(b.dataset.target));
+        const dotsShown = dotBtns.length && window.innerWidth >= 1200;
+        if (dotsShown) dotTargets.forEach(measure_);
         scrollFns.push((vh) => {
-            const max = document.documentElement.scrollHeight - vh;
+            const max = docH - vh;
             if (progressBar) progressBar.style.transform = 'scaleX(' + (max > 0 ? clamp(window.scrollY / max, 0, 1) : 0).toFixed(4) + ')';
+            if (!dotsShown) return;
             let active = 0;
-            dotTargets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= vh * 0.45) active = i; });
+            dotTargets.forEach((t, i) => { if (t && rectOf(t).top <= vh * 0.45) active = i; });
             dotBtns.forEach((b, i) => b.classList.toggle('is-active', i === active));
         });
         dotBtns.forEach((b, i) => b.addEventListener('click', () => {
@@ -6269,10 +6536,12 @@
 
             // ---- 3D entrance while scrolling in
             if (!reduceMotion) {
+                liteHooks.push(() => shell.classList.add('is-flat'));
                 scrollFns.push((vh) => {
-                    const r = sec.getBoundingClientRect();
+                    if (lite) return;
+                    const r = rectOf(measure_(sec));
                     if (!onScreen(r, vh)) return;
-                    const k = easeOut(clamp((vh - shell.getBoundingClientRect().top) / (vh * 0.7), 0, 1));
+                    const k = easeOut(clamp((vh - rectOf(measure_(shell)).top) / (vh * 0.7), 0, 1));
                     sec.style.setProperty('--k', k.toFixed(4));
                     shell.classList.toggle('is-flat', k > 0.995);
                 });
@@ -6471,7 +6740,8 @@
 
         // scroll progress of the hero (pinned on computers, normal on phones)
         scrollFns.push((vh) => {
-            const r = hero.getBoundingClientRect();
+            if (lite) return;
+            const r = rectOf(measure_(hero));
             const pinned = pinMQ.matches && !reduceMotion;
             const sp = pinned ? clamp(-r.top / Math.max(1, r.height - vh), 0, 1)
                               : clamp(-r.top / Math.max(1, r.height * 0.85), 0, 1);
@@ -6509,8 +6779,9 @@
         }
 
         function frame(now) {
-            if (!running) return;
-            if (!hero.offsetParent) { running = false; return; }
+            if (!running || lite) { running = false; return; }
+            if (pageHome.classList.contains('hidden')) { running = false; return; }
+            if (phone && now - lastT < 30) { requestAnimationFrame(frame); return; }   // phones: ~30 fps is plenty
             const dt = Math.min(0.05, (now - lastT) / 1000);
             lastT = now;
             const t = (now - t0) / 1000;
@@ -6525,7 +6796,7 @@
             requestAnimationFrame(frame);
         }
         function start() {
-            if (running || reduceMotion || document.hidden) return;
+            if (running || reduceMotion || lite || document.hidden) return;
             running = true;
             lastT = performance.now();
             syncSize();
@@ -6538,7 +6809,7 @@
             if (entries[0].isIntersecting) start(); else stopLoop();
         }, { threshold: 0 }).observe(hero.firstElementChild);
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) stopLoop(); else if (hero.offsetParent) start();
+            if (document.hidden) stopLoop(); else if (!pageHome.classList.contains('hidden')) start();
         });
         if ('ResizeObserver' in window) new ResizeObserver(syncSize).observe(hero.firstElementChild);
         else window.addEventListener('resize', syncSize);
@@ -6667,7 +6938,7 @@
             };
             const STRIDE = 11;
             const maxPoint = (gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE) || [1, 64])[1];
-            const low = isSmall() || (navigator.hardwareConcurrency || 8) <= 4;
+            const low = phone || isSmall() || (navigator.hardwareConcurrency || 8) <= 4;
             const FOV = 45 * Math.PI / 180, CAMZ = 10, TAN = Math.tan(FOV / 2);
             let W = 1, H = 1, aspect = 1, haloX = 0, haloY = 0, haloS = 1, haloDX = 0, ready = false;
 
@@ -6749,7 +7020,7 @@
             }
 
             function resize(m) {
-                const dpr = Math.min(window.devicePixelRatio || 1, low ? 1.5 : 2);
+                const dpr = Math.min(window.devicePixelRatio || 1, phone ? 1 : low ? 1.5 : 2);
                 W = m.w; H = m.h; aspect = W / H;
                 cv.width = Math.max(1, Math.round(W * dpr));
                 cv.height = Math.max(1, Math.round(H * dpr));
@@ -6865,8 +7136,74 @@
             gl3d.render(nowT(), 0, cur, 0, heroSP, heroMV);
             hero.classList.add('is-3d');
         };
-        if ('requestIdleCallback' in window) requestIdleCallback(bootGL, { timeout: 1200 });
-        else setTimeout(bootGL, 300);
+        if (!lite) {
+            if ('requestIdleCallback' in window) requestIdleCallback(bootGL, { timeout: 1200 });
+            else setTimeout(bootGL, 300);
+        }
+
+        /* ---- switch to the calm version (used by slow phones) ---- */
+        const SCROLL_VARS = ['--k', '--sp', '--mv', '--d', '--ex', '--dim', '--bgx', '--bgy', '--rx', '--ry'];
+        function goLite(force) {
+            if (lite && !force) return;
+            lite = true;
+            root.classList.add('fx-lite');
+            stopLoop();
+            hero.classList.remove('is-3d');
+            $$('#page-home [style*="--"]').forEach((el) => SCROLL_VARS.forEach((v) => el.style.removeProperty(v)));
+            liteHooks.forEach((f) => { try { f(); } catch (err) { /* keep going */ } });
+            $$('#page-home [data-count]').forEach((el) => { el.dataset.done = '1'; el.textContent = el.dataset.count; });
+            requestScroll();
+        }
+
+        if (lite && !reduceMotion) goLite(true);     // weak phone: set up normally, then calm everything down
+
+        /* ---- watch the real frame rate on phones: if it stays low, go lite automatically ---- */
+        if (phone && !lite && !forceFull && 'requestAnimationFrame' in window) {
+            // every 1.5 s, look at the frames drawn in that time; two slow checks in a row = slow phone
+            let samples = [], last = 0, slowChecks = 0, checks = 0, winStart = 0;
+            const begin = performance.now() + 1500;
+            const tick = (t) => {
+                if (lite) return;
+                if (document.hidden || pageHome.classList.contains('hidden')) { last = 0; winStart = 0; requestAnimationFrame(tick); return; }
+                if (t > begin) {
+                    if (last) samples.push(t - last);
+                    if (!winStart) winStart = t;
+                    if (t - winStart > 1500 && samples.length >= 6) {
+                        samples.sort((a, b) => a - b);
+                        const median = samples[samples.length >> 1];
+                        slowChecks = median > 27 ? slowChecks + 1 : 0;      // slower than ~37 frames a second
+                        samples = []; winStart = t; checks++;
+                        if (slowChecks >= 2) { goLite(); return; }
+                        if (checks >= 16) return;                          // ~25 s of watching is enough
+                    }
+                }
+                last = t;
+                requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        }
+
+        /* ---- phones: blurred photo backgrounds without the costly CSS blur filter
+                (a tiny copy of the photo, stretched by the browser, looks the same) ---- */
+        if (phone) $$('.fx-hero-bg, .fx-cta-bg').forEach((el) => {
+            const m = /url\(["']?([^"')]+)["']?\)/.exec(el.style.backgroundImage || '');
+            if (!m) return;
+            const img = new Image();
+            img.decoding = 'async';
+            img.onload = () => {
+                const w = el.classList.contains('fx-cta-bg') ? 56 : 80;
+                const h = Math.max(1, Math.round(w * img.naturalHeight / Math.max(1, img.naturalWidth)));
+                const cv = document.createElement('canvas');
+                cv.width = w; cv.height = h;
+                cv.className = 'fx-bg-soft';
+                cv.setAttribute('aria-hidden', 'true');
+                try { cv.getContext('2d').drawImage(img, 0, 0, w, h); } catch (err) { return; }
+                el.appendChild(cv);
+                el.classList.add('has-soft');
+            };
+            img.onerror = () => el.classList.add('has-soft');
+            img.src = m[1];
+        });
 
         requestScroll();
     })();
