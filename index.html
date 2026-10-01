@@ -4474,9 +4474,14 @@
             window.addEventListener('resize', updateHeaderHeightsAndPadding);
 
             // Show initial page
-            const initialHash = window.location.hash.replace('#', '');
-            if (initialHash && document.getElementById(initialHash)) {
+            const initialHash = decodeURIComponent(window.location.hash.replace('#', ''));
+            const hashTarget = initialHash ? document.getElementById(initialHash) : null;
+            if (hashTarget && hashTarget.classList.contains('page-section')) {
                 showPage(initialHash, true);
+            } else if (hashTarget && hashTarget.closest('.page-section')) {
+                // a spot inside a page (e.g. #contact or #fx-pmap): open that page, then scroll to it
+                showPage(hashTarget.closest('.page-section').id, true);
+                setTimeout(() => hashTarget.scrollIntoView({ behavior: 'auto', block: 'start' }), 400);
             } else {
                 showPage('page-home', true);
             }
