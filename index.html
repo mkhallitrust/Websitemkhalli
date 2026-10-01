@@ -1397,6 +1397,8 @@
         .fx-lite .fx-cta-bg { inset: 0; }
         .fx-lite .fx-glare { display: none; }
         .fx-lite [data-tilt] { transform: none !important; }
+            .fx-pm-life { display: inline-block; margin-top: .9rem; color: #800000; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+        .fx-pm-life:hover { color: #5a0000; }
     </style>
     <style>
         /* =====================================================================
@@ -1421,6 +1423,18 @@
             --pg-kn: 'Noto Sans Kannada', 'Zalando Sans SemiExpanded', sans-serif;
             --pg-shadow: 0 1px 2px rgba(60, 20, 10, .06), 0 14px 34px -16px rgba(60, 20, 10, .25);
         }
+
+                /* ---------- link to /vyasatirtha/ (palm-leaf card) ---------- */
+        .pg-vtlink { position: relative; display: grid; gap: .2rem; margin: 2.2rem 0 0; padding: 1.15rem 2.8rem 1.2rem; border-radius: 22px / 38px; text-decoration: none; color: #24160D;
+            background: #E8D29F; background-image: repeating-linear-gradient(180deg, rgba(110, 72, 20, .07) 0 1px, transparent 1px 7px), linear-gradient(90deg, rgba(110, 72, 20, .25), transparent 7%, transparent 93%, rgba(110, 72, 20, .25));
+            transition: transform .3s var(--pg-ease); }
+        .pg-vtlink::before, .pg-vtlink::after { content: ""; position: absolute; top: 50%; width: 11px; height: 11px; margin-top: -5.5px; border-radius: 50%; background: var(--pg-cream); box-shadow: inset 0 1px 3px rgba(60, 30, 5, .6); }
+        .pg-vtlink::before { left: 1.05rem; } .pg-vtlink::after { right: 1.05rem; }
+        .pg-vtlink:hover { transform: translateY(-2px); }
+        .pg-vtlink-skt { color: var(--pg-maroon); font-weight: 600; font-size: 1.05rem; }
+        .pg-vtlink strong { font-family: var(--pg-head); font-weight: 500; font-size: 1.9rem; line-height: 1; color: #24160D; }
+        html[lang="kn"] .pg-vtlink strong { font-family: var(--pg-kn); font-weight: 700; font-size: 1.25rem; line-height: 1.4; }
+        .pg-vtlink-sub { color: #4A3520; font-size: .95rem; }
 
         /* ---------- header: keep the trust name clear of the menu on every screen ---------- */
         .hd-b-full, .hd-b-two { display: none; }
@@ -2487,6 +2501,10 @@
                     <span data-lang="en">Trust</span>
                     <span data-lang="kn">ಟ್ರಸ್ಟ್</span>
                 </a></li>
+                <li><a href="/vyasatirtha/" class="mobile-nav-link block text-gray-800 p-2">
+                    <span data-lang="en">Life of Sri Vyasarajaru</span>
+                    <span data-lang="kn">ಶ್ರೀ ವ್ಯಾಸರಾಜರ ಜೀವನ</span>
+                </a></li>
                 <li><a href="#page-sevas" data-page="page-sevas" class="mobile-nav-link page-nav-link block text-primary bg-secondary/20 font-bold rounded-lg p-2 text-center" data-lang-key="book_sevas">
                     <span data-lang="en">Book Sevas</span>
                     <span data-lang="kn">ಸೇವಾ ಬುಕಿಂಗ್</span>
@@ -2856,6 +2874,7 @@
                             <span data-lang="en">376 Vyasaraja-pratishthita Pranadevaru (Hanuman) idols documented by Sri Vyasaraja Matha across Karnataka, Andhra Pradesh and Telangana. Tap a pin or a name to see the deity and get directions.</span>
                             <span data-lang="kn">ಶ್ರೀ ವ್ಯಾಸರಾಜ ಮಠವು ದಾಖಲಿಸಿರುವ, ಕರ್ನಾಟಕ, ಆಂಧ್ರ ಪ್ರದೇಶ ಮತ್ತು ತೆಲಂಗಾಣದಾದ್ಯಂತ ಇರುವ 376 ಶ್ರೀ ವ್ಯಾಸರಾಜ ಪ್ರತಿಷ್ಠಿತ ಪ್ರಾಣದೇವರು. ದೇವರ ದರ್ಶನ ಮತ್ತು ಮಾರ್ಗಕ್ಕಾಗಿ ಗುರುತಿನ ಮೇಲೆ ಅಥವಾ ಹೆಸರಿನ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ.</span>
                         </p>
+                        <a class="fx-pm-life" href="/vyasatirtha/"><span data-lang="en">Read the life of Sri Vyasaraja, with quizzes and games</span><span data-lang="kn">ರಸಪ್ರಶ್ನೆ, ಆಟಗಳೊಂದಿಗೆ ಶ್ರೀ ವ್ಯಾಸರಾಜರ ಜೀವನಚರಿತ್ರೆ ಓದಿ</span></a>
                     </header>
 
                     <div class="fx-pm-stats fx-reveal">
@@ -3254,7 +3273,7 @@
                                         <p>Anjaneya Temple Arasalbande Mavinakayinahalli,<br>A Rocsal Bande, Karnataka 561211,<br>India</p>
                                     </div>
                                 </div>
-                                <a class="fx-btn fx-btn-maroon fx-btn-sm" href="https://www.google.com/maps/dir//GHM7%2BM67+Mavinakayinahalli+Anjaneya+Swamy+Temple,+A+Rocsal+Bande,+Karnataka+561211/@13.534163,77.563047,16z/data=!4m17!1m7!3m6!1s0x3bb1ea75721aa89d:0x8b72fff4fa864d56!2sMavinakayinahalli+Anjaneya+Swamy+Temple!8m2!3d13.5341625!4d77.5630469!16s%2Fg%2F11c2j7z67v!4m8!1m0!1m5!1m1!1s0x3bb1ea75721aa89d:0x8b72fff4fa864d56!2m2!1d77.5631355!2d13.5341467!3e0?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyOC4wIKXMDSoASAFQAw%3D%3D"noopener">
+                                <a class="fx-btn fx-btn-maroon fx-btn-sm" href="https://www.google.com/maps/search/?api=1&query=Mavinakayinahalli+Anjaneya+Swamy+Temple" target="_blank" rel="noopener">
                                     <ion-icon name="navigate"></ion-icon>
                                     <span data-lang="en">Get Directions</span>
                                     <span data-lang="kn">ಮಾರ್ಗ ತೋರಿಸಿ</span>
@@ -3584,6 +3603,11 @@
                             <p data-lang="en" class="pg-p">From the same heart that composed Nyayamruta, Tarkatandava, and Chandrika, he also composed Kannada padas, padyas, and suladis, pouring the mantra-siddhi of Sanskrit shlokas into Dasa Sahitya. Vyasarajaru was the one who gave Dasa Deeksha to Purandaradasa and Kanakadasa. Later, Sri Vyasaraja was the great soul who worshipped Tirumalesha at Tirupati for twelve years.</p>
                             <p data-lang="kn" class="pg-p pg-kn">ನ್ಯಾಯಾಮೃತ ತರ್ಕತಾಂಡವ ಚಂದ್ರಿಕೆಗಳನ್ನು ರಚಿಸಿದ ಹೃದಯದಿಂದಲೇ ಕನ್ನಡ ಪದಪದ್ಯ ಸುಳಾದಿಗಳನ್ನು ರಚಿಸಿ ಸಂಸ್ಕೃತ ಶ್ಲೂಕಗಳ ಮಂತ್ರಸಿದ್ದಿಯನ್ನು ದಾಸಸಾಹಿತ್ಯಕ್ಕೆ ಧಾರೆಯೆರೆದರು . ವ್ಯಾಸರಾಜರು ಪುರಂದರದಾಸರು ಮತ್ತು ಕನಕದಾಸರಂತವರಿಗೆ ದಾಸದೀಕ್ಶೇ ನೀಡಿದವರು. ನಂತರ ಶ್ರೀ ವ್ಯಾಸರಾಜರು ತಿರುಪತಿ ಕ್ಷೇತ್ರದಲ್ಲಿ ಹನ್ನೆರಡು ವರ್ಷಗಳ ಕಾಲ ತಿರುಮಲೇಶನನ್ನು ಪೂಜಿಸಿದ ಮಹಾನುಭಾವರು.</p>
                             </div>
+                            <a class="pg-vtlink pg-reveal" href="/vyasatirtha/">
+                                <span class="pg-vtlink-skt" lang="sa">श्रीव्यासयोगिचरितम्</span>
+                                <strong><span data-lang="en">Read his life story</span><span data-lang="kn">ಅವರ ಜೀವನಚರಿತ್ರೆ ಓದಿ</span></strong>
+                                <span class="pg-vtlink-sub"><span data-lang="en">Six chapters from Somanatha's Vyasayogicharita, with quizzes, a journey map and games.</span><span data-lang="kn">ಸೋಮನಾಥರ ವ್ಯಾಸಯೋಗಿಚರಿತದ ಆರು ಅಧ್ಯಾಯಗಳು, ರಸಪ್ರಶ್ನೆ, ಪಯಣದ ನಕ್ಷೆ ಮತ್ತು ಆಟಗಳೊಂದಿಗೆ.</span></span>
+                            </a>
                         </article>
 
                         <!-- 03 · 732 PRANAPRATIKAGALU -->
@@ -4191,6 +4215,10 @@
                         <li><a href="#page-events" data-page="page-events" class="footer-link page-nav-link">
                             <span data-lang="en">Events</span>
                             <span data-lang="kn">ಕಾರ್ಯಕ್ರಮಗಳು</span>
+                        </a></li>
+                        <li><a href="/vyasatirtha/" class="footer-link">
+                            <span data-lang="en">Life of Sri Vyasarajaru</span>
+                            <span data-lang="kn">ಶ್ರೀ ವ್ಯಾಸರಾಜರ ಜೀವನ</span>
                         </a></li>
                         <li><a href="#page-trust" data-page="page-trust" class="footer-link page-nav-link" data-lang-key="trust">
                             <span data-lang="en">Trust</span>
