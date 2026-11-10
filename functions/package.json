@@ -1,0 +1,17 @@
+{
+  "name": "mkhalli-payments",
+  "description": "Cashfree payment server for Mavinakayinahalli Sri Mukhyaprana Seva Trust",
+  "private": true,
+  "main": "index.js",
+  "engines": { "node": "22" },
+  "scripts": {
+    "serve": "firebase emulators:start --only functions,firestore,hosting",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "node --test test/lib.test.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.1.0"
+  }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Seva Admin | Mavinakayinahalli Sri Mukhyaprana Seva Trust</title>
+<link rel="icon" href="https://raw.githubusercontent.com/chiranjeevims87-dotcom/mkhalli/main/Gemini_Generated_Image_rt4xiert4xiert4x%20-%20Edited.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<link rel="stylesheet" href="/admin/admin.css?v=1">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <img src="https://raw.githubusercontent.com/chiranjeevims87-dotcom/mkhalli/main/Gemini_Generated_Image_rt4xiert4xiert4x%20-%20Edited.png" alt="" width="36" height="36">
+    <div><b>Seva Admin</b><small>Mavinakayinahalli Sri Mukhyaprana Seva Trust (R)</small></div>
+  </div>
+  <nav class="tabs" id="tabs" hidden>
+    <button data-tab="bookings" class="is-on"><ion-icon name="receipt-outline"></ion-icon>Bookings</button>
+    <button data-tab="sheet"><ion-icon name="list-outline"></ion-icon>Priest list</button>
+    <button data-tab="sevas"><ion-icon name="flower-outline"></ion-icon>Sevas &amp; prices</button>
+    <button data-tab="dates"><ion-icon name="calendar-outline"></ion-icon>Dates</button>
+    <button data-tab="admins"><ion-icon name="people-outline"></ion-icon>Admins</button>
+  </nav>
+  <div class="who" id="who" hidden><span id="who-email"></span><button id="signout" class="btn ghost sm">Sign out</button></div>
+</header>
+
+<main>
+  <!-- sign in -->
+  <section class="panel center" id="v-signin">
+    <ion-icon name="lock-closed-outline" class="big"></ion-icon>
+    <h1>Trust admin sign-in</h1>
+    <p>Only Trust members added as admins can open this page.</p>
+    <button class="btn" id="signin"><ion-icon name="logo-google"></ion-icon>Sign in with Google</button>
+    <p class="err" id="signin-err"></p>
+  </section>
+
+  <!-- bookings -->
+  <section class="panel" id="v-bookings" hidden>
+    <div class="stats" id="stats"></div>
+    <div class="filters">
+      <select id="f-purpose"><option value="">Sevas + donations</option><option value="seva">Sevas only</option><option value="donation">Donations only</option></select>
+      <select id="f-status"><option value="PAID">Paid</option><option value="">All statuses</option><option value="ACTIVE">Started, not paid</option><option value="FAILED">Failed</option><option value="REVIEW">Needs review</option></select>
+      <select id="f-date"><option value="">All seva dates</option></select>
+      <select id="f-performed"><option value="">Performed + pending</option><option value="no">Not yet performed</option><option value="yes">Performed</option></select>
+      <input id="f-q" type="search" placeholder="Search name, phone, receipt, order…">
+      <button class="btn ghost" id="export"><ion-icon name="download-outline"></ion-icon>Export CSV</button>
+    </div>
+    <div class="table-wrap">
+      <table class="tbl" id="tbl">
+        <thead><tr><th>Receipt</th><th>Paid on</th><th>Name</th><th>Phone</th><th>Seva date</th><th>Sevas / purpose</th><th class="r">Amount</th><th>Status</th><th>Done</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="empty" id="tbl-empty" hidden>No bookings match these filters.</p>
+    </div>
+    <p class="hint">Showing the latest 2,000 orders. Updates live as payments come in.</p>
+  </section>
+
+  <!-- priest list -->
+  <section class="panel" id="v-sheet" hidden>
+    <div class="filters">
+      <select id="s-date"></select>
+      <button class="btn" id="s-print"><ion-icon name="print-outline"></ion-icon>Print</button>
+    </div>
+    <div id="sheet" class="sheet"></div>
+  </section>
+
+  <!-- sevas -->
+  <section class="panel" id="v-sevas" hidden>
+    <div class="row-head">
+      <h2>Sevas and prices</h2>
+      <button class="btn" id="seva-add"><ion-icon name="add"></ion-icon>Add seva</button>
+    </div>
+    <p class="hint">Changes show on the booking page within a minute. The server always charges the price saved here. Switch a seva off instead of deleting it, so old receipts stay correct.</p>
+    <div class="table-wrap">
+      <table class="tbl edit" id="sevas">
+        <thead><tr><th>Order</th><th>Name (English)</th><th>Name (Kannada)</th><th class="r">Price ₹</th><th>Icon</th><th>Short note</th><th>On</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- dates -->
+  <section class="panel" id="v-dates" hidden>
+    <div class="row-head">
+      <h2>Seva dates</h2>
+      <button class="btn" id="date-add"><ion-icon name="add"></ion-icon>Add date</button>
+    </div>
+    <label class="switch"><input type="checkbox" id="b-open"><span></span>Online booking is open</label>
+    <label class="field">Message on the booking page (optional)<input id="b-note" maxlength="400" placeholder="e.g. Sevas for Sri Madhwanavami close on 15 Feb"></label>
+    <div class="table-wrap">
+      <table class="tbl edit" id="dates">
+        <thead><tr><th>Date</th><th>Name of the day (English)</th><th>Name (Kannada)</th><th>Open</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="hint">Past dates are hidden from devotees automatically.</p>
+    <button class="btn" id="dates-save"><ion-icon name="save-outline"></ion-icon>Save dates</button>
+    <span class="saved" id="dates-saved"></span>
+  </section>
+
+  <!-- admins -->
+  <section class="panel" id="v-admins" hidden>
+    <h2>Admins</h2>
+    <p class="hint">People who can open this page. They sign in with this Google account.</p>
+    <ul class="admins" id="admins"></ul>
+    <form class="filters" id="admin-add"><input id="admin-email" type="email" placeholder="name@gmail.com" required><button class="btn"><ion-icon name="person-add-outline"></ion-icon>Add admin</button></form>
+  </section>
+</main>
+
+<!-- booking detail -->
+<dialog id="detail"><form method="dialog"><button class="x" aria-label="Close"><ion-icon name="close"></ion-icon></button></form><div id="detail-body"></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script type="module" src="/admin/admin.js?v=1"></script>
+</body>
+</html>

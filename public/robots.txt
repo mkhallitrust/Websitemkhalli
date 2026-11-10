@@ -1,0 +1,7 @@
+# Mavinakayinahalli Sri Mukhyaprana Seva Trust — https://www.mkhallipranadevaru.com/
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /payment-status/
+
+Sitemap: https://www.mkhallipranadevaru.com/sitemap.xml

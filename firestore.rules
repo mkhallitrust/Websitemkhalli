@@ -1,0 +1,44 @@
+rules_version = '2';
+// Mavinakayinahalli Sri Mukhyaprana Seva Trust — who can touch what.
+//  - Devotees' browsers never use Firestore directly; the payment server (Admin SDK) does.
+//  - Trust admins (a document admins/{their-email} exists) use the admin portal at /admin/.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null && request.auth.token.email_verified == true; }
+    function isAdmin() {
+      return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.token.email.lower()));
+    }
+
+    // admins list: an admin manages it; anyone signed in may check their own entry
+    match /admins/{email} {
+      allow read: if isAdmin() || (signedIn() && request.auth.token.email.lower() == email);
+      allow write: if isAdmin();
+    }
+
+    // seva list and booking dates: edited in the admin portal
+    match /sevas/{id} {
+      allow read: if isAdmin();
+      allow create, update: if isAdmin()
+        && request.resource.data.name is string && request.resource.data.name.size() > 1
+        && request.resource.data.amount is number && request.resource.data.amount > 0 && request.resource.data.amount <= 500000;
+      allow delete: if false;                      // switch a seva off instead (active = false)
+    }
+    match /settings/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    // bookings and donations: created only by the payment server.
+    // Admins can read them and tick "seva performed" / add a note — nothing else.
+    match /orders/{id} {
+      allow read: if isAdmin();
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['performed', 'performedAt', 'performedBy', 'adminNote']);
+      allow create, delete: if false;
+    }
+
+    // receipt e-mail queue (Trigger Email extension), counters, logs: server only
+    match /mail/{id} { allow read: if isAdmin(); allow write: if false; }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
